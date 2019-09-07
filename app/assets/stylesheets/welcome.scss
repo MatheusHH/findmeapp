@@ -1,0 +1,22 @@
+// Place all the styles related to the welcome controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#search {
+	margin-top: 150px;
+}
+
+#search-field {
+	width: 350px;
+}
+
+#submit-button {
+	width: 100px;
+}
+
+#refresh-button {
+	position: absolute;
+	left: 450px;
+	width: 100px;
+	top: -5px;
+}

@@ -1,0 +1,64 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+      <!-- Title if you wanna do it-->
+  </div>
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-lg-6">
+
+        <%= form_with(model: user, local: true, role: 'form') do |form| %>
+          <% if user.errors.any? %>
+            <div id="error_explanation">
+              <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+              <ul>
+              <% user.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+              </ul>
+            </div>
+          <% end %>
+
+          <div class="form-group">
+            <%= form.label :name %>
+            <%= form.text_field :name, class: "form-control" %>
+          </div>
+
+          <div class="form-group">
+            <%= form.label :email %><br />
+            <%= form.email_field :email, autocomplete: "email", class: "form-control" %>
+          </div>
+
+          <div class="form-group">
+            <%= form.label :password %>
+            <% if @minimum_password_length %>
+            <em>(<%= @minimum_password_length %> characters minimum)</em>
+            <% end %><br />
+            <%= form.password_field :password, autocomplete: "new-password", class: "form-control" %>
+          </div>
+
+          <div class="form-group">
+            <%= form.label :password_confirmation %><br />
+            <%= form.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
+          </div>
+
+          <div class="form-group">
+            <%= form.label :role %>
+            <%= form.number_field :role, class: "form-control" %>
+          </div>
+
+          <div class="actions">
+            <%= form.submit 'Save', class: "btn btn-outline btn-success" %>
+            <%= link_to 'Back', users_path, class: "btn btn-outline btn-primary" %>
+          </div>
+        <% end %>
+
+      </div>
+        <!-- /.col-lg-6 (nested) -->
+    </div>
+    <!-- /.row (nested) -->
+  </div>
+  <!-- /.panel-body -->
+</div>
+
+
