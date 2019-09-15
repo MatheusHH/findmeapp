@@ -29,6 +29,26 @@
             <%= form.text_area :description, class: "form-control" %>
           </div>
 
+          <div class="form-group">
+            <%= form.label :street %>
+            <%= form.text_field :street, class: "form-control" %>
+          </div>
+
+          <div class="form-group">
+            <%= form.label :city %>
+            <%= form.text_field :city, class: "form-control" %>
+          </div>
+
+          <div class="form-group">
+            <%= form.label :state %>
+            <%= form.text_field :state, class: "form-control" %>
+          </div>
+
+          <div class="form-group">
+            <%= form.label :country %>
+            <%= form.text_field :country, class: "form-control" %>
+          </div>
+
           <div class="actions">
             <%= form.submit 'Save', class: "btn btn-outline btn-success" %>
             <%= link_to 'Back', ads_path, class: "btn btn-outline btn-primary" %>

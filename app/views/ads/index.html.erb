@@ -25,7 +25,7 @@
               <tr>
                 <td><%= ad.title %></td>
                 <td><%= ad.description %></td>
-                <td><%= ad.user %></td>
+                <td><%= ad.user.name %></td>
 
                 <td class="col-md-2"><%= link_to edit_ad_path(ad), class: "btn btn-outline btn-info btn-circle" do %> <i class="fa fa-edit"></i><% end %>
                 <%= link_to ad_path(ad), method: :delete, class: "btn btn-outline btn-danger btn-circle", data: { confirm: 'Are you sure?' } do %> <i class="fa fa-minus"></i> <% end %> </td>

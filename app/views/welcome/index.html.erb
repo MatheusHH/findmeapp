@@ -4,7 +4,6 @@
       <a class="navbar-brand" href="#">Encontre-me</a>
     </div>
     <ul class="nav navbar-nav navbar-right">
-      <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
       <li><%= link_to new_user_session_path do %> <span class="glyphicon glyphicon-log-in"></span> Login</a></li> <% end %>
     </ul>
   </div>
@@ -12,44 +11,71 @@
 
 <div class="container-fluid" id="search">
   <div class="row">
-    <div class="col-sm-3"></div>
+    <%= search_form_for @q, url: welcome_index_path, html: { method: :get } do |f| %>
+      <div class="col-sm-3"></div>
 
-    <div class="col-sm-6">
-      <div class="form-group input-group">
+      <div class="col-sm-6">
+        <div class="form-group input-group">
 
-        <%= search_form_for @q, url: welcome_index_path, html: { method: :get } do |f| %>
+          
 
-          <%= f.search_field :title_or_description_cont, class: "form-control", id: "search-field" %>
+            <%= f.search_field :title_or_description_cont, class: "form-control", id: "search-field", placeholder: "Digite o que você procura ! Ex: Pedreiro" %>
 
-          <%= button_tag type: 'submit', class: "btn btn-default btn-block", id: "submit-button" do %>
-            <i class="fa fa-search"></i>
-          <% end %>
+            <%= f.search_field :city_cont, class: "form-control", id: "search-field-city", placeholder: "Digite a cidade" %>
 
-          <%= link_to request.path, class: "btn btn-default btn-block", id: "refresh-button" do %> 
-            <i class="fa fa-refresh"></i>
-          <% end %>
-        <% end %>
-          <!--<input type="text" class="form-control">
-          <span class="input-group-btn">
-              <button class="btn btn-default" type="button"><i class="fa fa-search"></i>
-              </button>
-          </span>-->
+            <%= button_tag type: 'submit', class: "btn btn-default btn-block", id: "submit-button" do %>
+              <i class="fa fa-search"></i>
+            <% end %>
+
+            <%= link_to request.path, class: "btn btn-default btn-block", id: "refresh-button" do %> 
+              <i class="fa fa-refresh"></i>
+            <% end %>
+          
+            <!--<input type="text" class="form-control">
+            <span class="input-group-btn">
+                <button class="btn btn-default" type="button"><i class="fa fa-search"></i>
+                </button>
+            </span>-->
+        </div>
       </div>
-    </div>
+    <% end %>
   </div>
 </div>
 
-<% if @ads.size > 0 %>
-  <div class="panel-group col-sm-3">
-    <div class="panel panel-primary">
+<% if @ads.size > 0 %> 
+  <div class="container">
+    <div class="row">
       <% @ads.each do |ad| %>
-        <div class="panel-heading">
-          <%= ad.title %>
-        </div>
-        <div class="panel-body">
-          <%= ad.description %>
+        <div class="col-md-3">
+          <div class="panel panel-primary">
+            <div class="panel-heading">
+              <%= ad.title %>
+            </div>
+            <div class="panel-body">
+              <%= ad.description %>
+            </div>
+
+            <ul class="list-group">
+              <li class="list-group-item"><%= ad.street %></li>
+              <li class="list-group-item"><%= ad.city %></li>
+              <li class="list-group-item"><%= ad.state %></li>
+            </ul>
+
+          </div> 
         </div>
       <% end %>
     </div>
   </div>
 <% end %>
+
+
+<footer class="footer">
+    <div class="navbar navbar-inverse navbar-fixed-bottom">
+        <div class="navbar-inner">
+            <div class="container">
+                
+            </div>
+        </div>
+    </div>
+</footer>
+

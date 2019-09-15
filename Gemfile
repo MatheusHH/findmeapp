@@ -19,7 +19,8 @@ gem 'jquery-rails'
 gem 'bootstrap_sb_admin_base_v2'
 gem 'devise'
 gem 'ransack'
-
+gem "pundit"
+gem 'geocoder'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks

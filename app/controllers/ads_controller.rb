@@ -5,7 +5,7 @@ class AdsController < ApplicationController
   # GET /ads
   # GET /ads.json
   def index
-    @ads = Ad.all
+    @ads = policy_scope(Ad).all
   end
 
   # GET /ads/1
@@ -20,6 +20,7 @@ class AdsController < ApplicationController
 
   # GET /ads/1/edit
   def edit
+    @user = current_user
   end
 
   # POST /ads
@@ -29,7 +30,7 @@ class AdsController < ApplicationController
     @ad.user = current_user
     respond_to do |format|
       if @ad.save
-        format.html { redirect_to @ad, notice: 'Ad was successfully created.' }
+        format.html { redirect_to ads_url, notice: 'Ad was successfully created.' }
         format.json { render :show, status: :created, location: @ad }
       else
         format.html { render :new }
@@ -43,7 +44,7 @@ class AdsController < ApplicationController
   def update
     respond_to do |format|
       if @ad.update(ad_params)
-        format.html { redirect_to @ad, notice: 'Ad was successfully updated.' }
+        format.html { redirect_to ads_url, notice: 'Ad was successfully updated.' }
         format.json { render :show, status: :ok, location: @ad }
       else
         format.html { render :edit }
@@ -70,6 +71,6 @@ class AdsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def ad_params
-      params.require(:ad).permit(:title, :description, :user_id)
+      params.require(:ad).permit(:title, :street, :city, :state, :country, :latitude, :longitude, :description, :user_id)
     end
 end
