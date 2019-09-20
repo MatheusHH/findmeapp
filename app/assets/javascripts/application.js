@@ -17,3 +17,23 @@
 //= require bootstrap_sb_admin_base_v2
 //= require turbolinks
 //= require_tree .
+
+
+
+function getLocation(event) {
+  event.preventDefault();	
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(showPosition);
+  } else {
+    x.innerHTML = "Geolocation is not supported by this browser.";
+  }
+}
+
+function showPosition(position) {
+
+  var lat = position.coords.latitude;
+  var long = position.coords.longitude;
+
+  $("#latitude-field").val(lat);
+  $("#longitude-field").val(long);
+}

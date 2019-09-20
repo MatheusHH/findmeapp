@@ -2,6 +2,8 @@ class WelcomeController < ApplicationController
   layout 'welcome'
   
   def index
+  	@latitude = params[:latitude].to_f
+  	@longitude = params[:longitude].to_f
   	if params[:q] && params[:q].reject { |k, v| v.blank? }.present?
   		@q = Ad.ransack(params[:q])
   	else
@@ -9,6 +11,7 @@ class WelcomeController < ApplicationController
   	end
   	@ads = @q.result
   	@ads = @ads.near(params[:city]) if params[:city]
+  	@ads = @ads.near([@latitude, @longitude], 50) if params[:latitude].to_f != 0 && params[:longitude].to_f != 0
   end
 
   #private
