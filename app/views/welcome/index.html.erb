@@ -21,11 +21,11 @@
 
             <%= f.search_field :title_or_description_cont, class: "form-control", id: "search-field", placeholder: "Digite o que você procura ! Ex: Pedreiro" %>
 
-            <%= f.search_field :city_cont, class: "form-control", id: "search-field-city", placeholder: "Digite a cidade" %>
+            <%= f.search_field :city_cont, class: "form-control", id: "search-field-city", placeholder: "Digite a cidade ou habilite a localização" %>
 
-            <%= text_field_tag :latitude, params[:latitude], class: "form-control", id: "latitude-field" %>
+            <%= hidden_field_tag :latitude, params[:latitude], class: "form-control", id: "latitude-field" %>
 
-            <%= text_field_tag :longitude, params[:longitude], class: "form-control", id: "longitude-field" %>
+            <%= hidden_field_tag :longitude, params[:longitude], class: "form-control", id: "longitude-field" %>
 
             <%= button_tag type: 'submit', class: "btn btn-default btn-block", id: "submit-button" do %>
               <i class="fa fa-search"></i>
@@ -48,35 +48,36 @@
   </div>
 </div>
 
-<% if @ads.size > 0 %> 
-  <div class="container">
-    <div class="row">
-      <% @ads.each do |ad| %>
-        <div class="col-md-3">
-          <div class="panel panel-primary">
-            <div class="panel-heading">
-              <%= ad.title %>
-            </div>
-            <div class="panel-body">
-              <%= ad.description %>
-            </div>
+<div id="logo">
+  <% if @ads.size > 0 %> 
+    <div class="container">
+      <div class="row">
+        <% @ads.each do |ad| %>
+          <div class="col-md-3">
+            <div class="panel panel-primary">
+              <div class="panel-heading">
+                <%= ad.title %>
+              </div>
+              <div class="panel-body">
+                <%= ad.description %>
+              </div>
 
-            <ul class="list-group">
-              <li class="list-group-item"><%= ad.street %></li>
-              <li class="list-group-item"><%= ad.city %></li>
-              <li class="list-group-item"><%= ad.state %></li>
-              <% if @latitude != 0 && @longitude != 0 %>
-                <li class="list-group-item"><%= distance(@latitude, @longitude, ad.latitude, ad.longitude) %><b> KM</b></li>
-              <% end %>
-            </ul>
+              <ul class="list-group">
+                <li class="list-group-item"><%= ad.street %></li>
+                <li class="list-group-item"><%= ad.city %></li>
+                <li class="list-group-item"><%= ad.state %></li>
+                <% if @latitude != 0 && @longitude != 0 %>
+                  <li class="list-group-item"><%= distance(@latitude, @longitude, ad.latitude, ad.longitude) %><b> KM</b></li>
+                <% end %>
+              </ul>
 
-          </div> 
-        </div>
-      <% end %>
+            </div> 
+          </div>
+        <% end %>
+      </div>
     </div>
-  </div>
-<% end %>
-
+  <% end %>
+</div>
 
 
 

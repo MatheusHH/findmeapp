@@ -8,4 +8,12 @@ class AdPolicy < ApplicationPolicy
       	end
     end
   end
+
+  def destroy?
+  	record.user_id == user.id
+  end
+
+  def edit?
+  	record.user_id == user.id
+  end
 end

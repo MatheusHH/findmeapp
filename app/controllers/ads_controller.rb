@@ -20,7 +20,7 @@ class AdsController < ApplicationController
 
   # GET /ads/1/edit
   def edit
-    @user = current_user
+    authorize @ad
   end
 
   # POST /ads
@@ -56,6 +56,7 @@ class AdsController < ApplicationController
   # DELETE /ads/1
   # DELETE /ads/1.json
   def destroy
+    authorize @ad
     @ad.destroy
     respond_to do |format|
       format.html { redirect_to ads_url, notice: 'Ad was successfully destroyed.' }

@@ -21,6 +21,7 @@ gem 'devise'
 gem 'ransack'
 gem "pundit"
 gem 'geocoder'
+gem 'kaminari'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
@@ -45,6 +46,10 @@ group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end
+
+#group :production do
+ # gem 'pg'
+#end
 
 group :development do
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
