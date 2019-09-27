@@ -2,9 +2,13 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+#header {
+	margin-top: -20px;
+	padding-top: 10px;
+}
 
-#background {
-	background-color: #AFA5A5;
+#sessao {	
+	padding-top: 10px;
 }
 
 #search {

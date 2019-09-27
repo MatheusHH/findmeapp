@@ -14,6 +14,7 @@ class WelcomeController < ApplicationController
   	@ads = @ads.near([@latitude, @longitude], 50) if params[:latitude].to_f != 0 && params[:longitude].to_f != 0
   end
 
+
   #private
 
   #	def filter_by_cities

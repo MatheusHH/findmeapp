@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
+  resources :showad, only: [:show]
   resources :ads, :except => [:show]
   get 'welcome/index'
+  get 'welcome/:id', to: 'welcome#show'
+
   devise_for :users
   resources :users, :except => [:show]
   get 'home/index'
