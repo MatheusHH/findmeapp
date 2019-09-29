@@ -7,4 +7,5 @@ class User < ApplicationRecord
   enum role: [ :admin, :customer ]
 
   has_many :ads
+  has_many :customers
 end
