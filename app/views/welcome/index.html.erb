@@ -1,10 +1,10 @@
-<nav class="navbar navbar-inverse">
+<nav class="navbar navbar-inverse navbar-fixed-top">
   <div class="container-fluid">
     <div class="navbar-header">
       <a class="navbar-brand" href="#">Encontre-me</a>
     </div>
     <ul class="nav navbar-nav navbar-right">
-      <li><%= link_to new_user_session_path do %> <span class="glyphicon glyphicon-log-in"></span> Login</a></li> <% end %>
+      <li><%= link_to new_user_session_path do %> <span class="glyphicon glyphicon-log-in"></span> LOGIN</li> <% end %>
     </ul>
   </div>
 </nav>
@@ -52,7 +52,7 @@
 </header>
 
 <section id="sessao">
-  <% if @ads.size > 0 %> 
+  <% if @ads.length > 0 %> 
   	<div class="container">
   	  <div class="row">
   	    <% @ads.each do |ad| %>
@@ -66,15 +66,18 @@
   	          </div>
 
   	          <ul class="list-group">
+                <li class="list-group-item"><%= ad.contact %></li>
   	            <li class="list-group-item"><%= ad.street %></li>
   	            <li class="list-group-item"><%= ad.city %></li>
   	            <li class="list-group-item"><%= ad.state %></li>
+               
+                <li class="list-group-item"><%= link_to '<i class="fa fa-whatsapp"></i> Entre em contato'.html_safe, "https://wa.me/#{ad.contact}", target: "_blank", class: "btn btn-outline btn-success btn-xs" %> </li>
+
   	            <% if @latitude != 0 && @longitude != 0 %>
   	              <li class="list-group-item"><%= distance(@latitude, @longitude, ad.latitude, ad.longitude) %><b> KM</b></li>
   	            <% end %>
                 <li class="list-group-item"><%= link_to showad_path(ad), class: "btn btn-primary btn-xs", remote: true do %> Detalhes <% end %> </li>
   	          </ul>
-
   	        </div> 
   	      </div>
   	    <% end %>
@@ -94,3 +97,5 @@
 </footer>
 
 <%= render partial: "modals/ad_modal" %> 
+
+<%= paginate @ads %>
