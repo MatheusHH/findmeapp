@@ -21,6 +21,7 @@ gem 'ransack'
 gem "pundit"
 gem 'geocoder'
 gem 'kaminari'
+gem 'kaminari-i18n'
 gem 'data-confirm-modal'
 gem "cocoon"
 # Use CoffeeScript for .coffee assets and views

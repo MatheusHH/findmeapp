@@ -5,7 +5,7 @@ class AdsController < ApplicationController
   # GET /ads
   # GET /ads.json
   def index
-    @ads = policy_scope(Ad).all
+    @ads = policy_scope(Ad).all.page(params[:page]).per(5)
   end
 
   # GET /ads/1

@@ -4,7 +4,7 @@ class CustomersController < ApplicationController
   # GET /customers
   # GET /customers.json
   def index
-    @customers = policy_scope(Customer).all
+    @customers = policy_scope(Customer).all.page(params[:page]).per(5)
   end
 
   # GET /customers/1
