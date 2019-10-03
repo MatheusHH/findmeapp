@@ -1,0 +1,62 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+      <!-- Title if you wanna do it-->
+  </div>
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-lg-6">
+
+        <%= form_with(model: book, local: true, role: 'form') do |form| %>
+          <% if book.errors.any? %>
+            <div id="error_explanation">
+              <h2><%= pluralize(book.errors.count, "error") %> prohibited this book from being saved:</h2>
+
+              <ul>
+              <% book.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+              </ul>
+            </div>
+          <% end %>
+
+          <div class="form-group">
+            <%= form.label :description %>
+            <%= form.text_area :description, class: "form-control" %>
+          </div>
+
+          <div class="form-group">
+            <%= form.label :schedule %>
+            <%= form.text_field :schedule, class: "form-control", id: "datetimepicker" %>
+          </div>
+
+          <div class="form-group">
+            <%= form.label :status %>
+            <%= form.select :status, Book.statuses.keys.to_a, {}, class: "form-control" %>
+          </div>
+
+          <div class="form-group">
+            <%= form.label :customer_id %>
+            <%= form.select(:customer_id, Customer.where(user_id: current_user.id ).collect {|p| [ p.name, p.id ] }, {prompt: "Selecione o cliente"}, { class: "form-control" })%>
+          </div>
+
+          <div class="actions">
+            <%= form.submit 'Save', class: "btn btn-outline btn-success" %>
+            <%= link_to 'Back', books_path, class: "btn btn-outline btn-primary" %>
+          </div>
+        <% end %>
+      </div>
+        <!-- /.col-lg-6 (nested) -->
+    </div>
+    <!-- /.row (nested) -->
+  </div>
+  <!-- /.panel-body -->
+</div>
+
+
+<script type="text/javascript">
+    $(function () {
+        $('#datetimepicker').datetimepicker({
+            locale: 'pt-br'
+        });
+    });
+</script>

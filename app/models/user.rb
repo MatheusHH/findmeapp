@@ -8,4 +8,5 @@ class User < ApplicationRecord
 
   has_many :ads
   has_many :customers
+  has_many :books
 end

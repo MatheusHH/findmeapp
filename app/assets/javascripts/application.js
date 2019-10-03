@@ -14,7 +14,11 @@
 //= require activestorage
 //= require jquery
 //= require jquery_ujs
+//= require jquery-ui
 //= require bootstrap_sb_admin_base_v2
+//= require moment
+//= require moment/pt-br
+//= require bootstrap-datetimepicker
 //= require data-confirm-modal
 //= require cocoon
 //= require turbolinks

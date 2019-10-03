@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_30_210548) do
+ActiveRecord::Schema.define(version: 2019_10_03_170329) do
 
   create_table "ads", force: :cascade do |t|
     t.string "title"
@@ -26,6 +26,18 @@ ActiveRecord::Schema.define(version: 2019_09_30_210548) do
     t.float "longitude"
     t.string "contact"
     t.index ["user_id"], name: "index_ads_on_user_id"
+  end
+
+  create_table "books", force: :cascade do |t|
+    t.text "description"
+    t.integer "status", default: 0
+    t.integer "user_id"
+    t.integer "customer_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.datetime "schedule"
+    t.index ["customer_id"], name: "index_books_on_customer_id"
+    t.index ["user_id"], name: "index_books_on_user_id"
   end
 
   create_table "customers", force: :cascade do |t|
