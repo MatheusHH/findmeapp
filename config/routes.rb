@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :services
   resources :books
   resources :customers
   resources :showad, only: [:show]

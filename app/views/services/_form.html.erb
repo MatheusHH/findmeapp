@@ -1,0 +1,49 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+      <!-- Title if you wanna do it-->
+  </div>
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-lg-6">
+        <%= form_with(model: service, local: true, role: 'form') do |form| %>
+          <% if service.errors.any? %>
+            <div id="error_explanation">
+              <h2><%= pluralize(service.errors.count, "error") %> prohibited this service from being saved:</h2>
+
+              <ul>
+              <% service.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+              </ul>
+            </div>
+          <% end %>
+
+          <div class="form-group">
+            <%= form.label :name %>
+            <%= form.text_field :name, class: "form-control" %>
+          </div>
+
+          <div class="form-group">
+            <%= form.label :description %>
+            <%= form.text_area :description, class: "form-control" %>
+          </div>
+
+          <div class="form-group">
+            <%= form.label :price %>
+            <%= form.text_field :price, class: "form-control" %>
+          </div>
+
+          <div class="actions">
+            <%= form.submit 'Save', class: "btn btn-outline btn-success" %>
+            <%= link_to 'Back', services_path, class: "btn btn-outline btn-primary" %>
+          </div>
+        <% end %>
+      </div>
+        <!-- /.col-lg-6 (nested) -->
+    </div>
+    <!-- /.row (nested) -->
+  </div>
+  <!-- /.panel-body -->
+</div>
+
+

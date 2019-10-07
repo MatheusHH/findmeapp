@@ -20,6 +20,7 @@
 //= require moment/pt-br
 //= require bootstrap-datetimepicker
 //= require data-confirm-modal
+//= require confirm-modal
 //= require cocoon
 //= require turbolinks
 //= require_tree .
