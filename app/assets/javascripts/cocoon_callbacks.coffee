@@ -13,3 +13,5 @@ jQuery(document).on 'turbolinks:load', ->
     $(this).data('remove-timeout', 1000)
     el_to_remove.fadeOut(1000)
     # COMENTÁRIO: Cria pequena animação ao apagar um phone
+
+    

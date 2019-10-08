@@ -10,4 +10,5 @@ class User < ApplicationRecord
   has_many :customers
   has_many :books
   has_many :services
+  has_many :budgets
 end

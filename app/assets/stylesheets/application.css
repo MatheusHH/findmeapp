@@ -13,7 +13,7 @@
  *= require font-awesome
  *= require jquery-ui
  *= require bootstrap_sb_admin_base_v2
- *= require bootstrap-datetimepicker
+ 
  *= require_tree .
  *= require_self
  */

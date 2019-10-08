@@ -1,0 +1,72 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+      <!-- Title if you wanna do it-->
+  </div>
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-lg-6">
+        <%= form_with(model: budget, local: true, rule: 'form') do |form| %>
+          <% if budget.errors.any? %>
+            <div id="error_explanation">
+              <h2><%= pluralize(budget.errors.count, "error") %> prohibited this budget from being saved:</h2>
+
+              <ul>
+              <% budget.errors.full_messages.each do |message| %>
+                <li><%= message %></li>
+              <% end %>
+              </ul>
+            </div>
+          <% end %>
+
+          <div class="form-group">
+            <%= form.label :customer_id %>
+            <%= form.select(:customer_id, Customer.where(user_id: current_user.id ).collect {|p| [ p.name, p.id ] }, {prompt: "Selecione o cliente"}, { class: "form-control" })%>
+          </div>
+
+          <div class="form-group">
+            <%= form.label :duedate %>
+            <%= form.text_field :duedate, class: "form-control", id: "datepicker" %>
+          </div>
+
+          <div id="budget-services">
+            <%= form.fields_for :budget_services do |budget_service| %>
+              <%= render 'budgets/budget_services/budget_services_fields', :f => budget_service %>
+            <% end %>
+
+            <div class="links">
+              <%= link_to_add_association 'Add service', form, :budget_services, partial: 'budgets/budget_services/budget_services_fields', class: "btn btn-outline btn-primary btn-xs" %>
+            </div>
+          </div>
+          <br>
+          
+          <div class="form-group">
+            <%= form.label :totalprice %>
+            <%= form.text_field :totalprice, class: "form-control" %>
+          </div>
+
+          <div class="form-group">
+            <%= form.label :discount %>
+            <%= form.text_field :discount, class: "form-control" %>
+          </div>
+
+          <div class="actions">
+            <%= form.submit 'Save', class: "btn btn-outline btn-success" %>
+            <%= link_to 'Back', budgets_path, class: "btn btn-outline btn-primary" %>
+          </div>
+        <% end %>
+      </div>
+        <!-- /.col-lg-6 (nested) -->
+    </div>
+    <!-- /.row (nested) -->
+  </div>
+  <!-- /.panel-body -->
+</div>
+
+<script type="text/javascript">
+    $(function () {
+        $('#datepicker').datepicker({
+            locale: 'pt-br',
+            format: 'YYYY-MM-DD hh:mm'
+        });
+    });
+</script>

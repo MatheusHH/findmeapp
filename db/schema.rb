@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_10_07_183130) do
+ActiveRecord::Schema.define(version: 2019_10_07_232330) do
 
   create_table "ads", force: :cascade do |t|
     t.string "title"
@@ -38,6 +38,29 @@ ActiveRecord::Schema.define(version: 2019_10_07_183130) do
     t.datetime "schedule"
     t.index ["customer_id"], name: "index_books_on_customer_id"
     t.index ["user_id"], name: "index_books_on_user_id"
+  end
+
+  create_table "budget_services", force: :cascade do |t|
+    t.integer "budget_id"
+    t.integer "service_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["budget_id"], name: "index_budget_services_on_budget_id"
+    t.index ["service_id"], name: "index_budget_services_on_service_id"
+  end
+
+  create_table "budgets", force: :cascade do |t|
+    t.integer "customer_id"
+    t.date "duedate"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "totalprice_cents", default: 0, null: false
+    t.string "totalprice_currency", default: "BRL", null: false
+    t.integer "discount_cents", default: 0, null: false
+    t.string "discount_currency", default: "BRL", null: false
+    t.integer "user_id"
+    t.index ["customer_id"], name: "index_budgets_on_customer_id"
+    t.index ["user_id"], name: "index_budgets_on_user_id"
   end
 
   create_table "customers", force: :cascade do |t|

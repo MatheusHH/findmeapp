@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  customer: one
+  duedate: 2019-10-07
+  totalprice: 1
+  discount: 1
+
+two:
+  customer: two
+  duedate: 2019-10-07
+  totalprice: 1
+  discount: 1

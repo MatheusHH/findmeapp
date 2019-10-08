@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
-  resources :services
-  resources :books
-  resources :customers
+  resources :budgets
+  resources :services, :except => [:show]
+  resources :books, :except => [:show]
+  resources :customers, :except => [:show]
   resources :showad, only: [:show]
   resources :ads, :except => [:show]
   get 'welcome/index'
