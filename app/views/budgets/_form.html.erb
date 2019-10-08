@@ -28,7 +28,7 @@
             <%= form.text_field :duedate, class: "form-control", id: "datepicker" %>
           </div>
 
-          <div id="budget-services">
+          <div id="budgetservices">
             <%= form.fields_for :budget_services do |budget_service| %>
               <%= render 'budgets/budget_services/budget_services_fields', :f => budget_service %>
             <% end %>

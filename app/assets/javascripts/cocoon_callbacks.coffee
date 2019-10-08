@@ -1,5 +1,6 @@
 jQuery(document).on 'turbolinks:load', ->
   phones = $('#phones')
+  services = $('#budgetservices')
 
   phones.on 'cocoon:before-insert', (e, added_el) ->
   	added_el.fadeIn(1000)
@@ -13,5 +14,18 @@ jQuery(document).on 'turbolinks:load', ->
     $(this).data('remove-timeout', 1000)
     el_to_remove.fadeOut(1000)
     # COMENTÁRIO: Cria pequena animação ao apagar um phone
+
+
+  services.on 'cocoon:before-insert', (e, added_el) ->
+    added_el.fadeIn(1000)
+
+  services.on 'cocoon:after-insert', (e, added_el) ->
+    added_el.find("input").first().focus();
+
+  services.on 'cocoon:before-remove', (e, el_to_remove) ->
+    $(this).data('remove-timeout', 1000)
+    el_to_remove.fadeOut(1000)
+
+
 
     

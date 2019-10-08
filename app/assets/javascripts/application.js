@@ -19,6 +19,7 @@
 //= require data-confirm-modal
 //= require confirm-modal
 //= require cocoon
+//= require cocoon_callbacks
 //= require turbolinks
 //= require_tree .
 
