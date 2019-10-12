@@ -1,55 +1,62 @@
-<nav class="navbar navbar-inverse navbar-fixed-top">
+
+<nav class="navbar navbar-inverse" style="border-radius:0 !important">
   <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
       <a class="navbar-brand" href="#">Encontre-me</a>
     </div>
     <ul class="nav navbar-nav navbar-right">
-      <li><%= link_to new_user_session_path do %> <span class="glyphicon glyphicon-log-in"></span> LOGIN</li> <% end %>
+      <li><%= link_to new_user_session_path do %> <span class="glyphicon glyphicon-log-in"></span> LOGIN</li> <% end %></li>
     </ul>
-  </div>
+
+    <%= search_form_for @q, url: welcome_index_path, html: { class: "navbar-form navbar-right", method: :get } do |f| %>
+      <div class="input-group input-group-sm">
+        <%= f.search_field :city_cont, class: "form-control", id: "search-field-city", placeholder: "Digite a cidade ou habilite a localização" %>
+
+        <span class="input-group-btn input-group-sm">
+          <button onclick="getLocation(event)" class="btn btn-success btn-sm" id="geolocation-button"><i class="glyphicon glyphicon-map-marker"></i></button>
+        </span>
+      </div>
+
+      <div class="input-group input-group-sm">
+        <%= f.search_field :title_or_description_cont, class: "form-control", id: "search-field", placeholder: "Digite o que você procura ! Ex: Pedreiro" %>
+
+          <span class="input-group-btn input-group-sm">
+            <%= button_tag type: 'submit', class: "btn btn-danger", id: "submit-button" do %>
+              <i class="fa fa-search"></i>
+            <% end %>
+          </span>
+      </div>
+        
+      
+      
+
+      <%= hidden_field_tag :latitude, params[:latitude], class: "form-control", id: "latitude-field" %>
+
+      <%= hidden_field_tag :longitude, params[:longitude], class: "form-control", id: "longitude-field" %>
+
+      
+
+      <%= link_to request.path, class: "btn btn-info btn-sm", id: "refresh-button" do %> 
+        <i class="fa fa-refresh"></i>
+      <% end %>
+
+    <% end %>
+
+
+    <!--<form class="navbar-form navbar-left">
+      <div class="form-group">
+        <input type="text" class="form-control" placeholder="Search">
+      </div>
+      <button type="submit" class="btn btn-default">Submit</button>
+    </form>-->
+  </div><!-- /.container-fluid -->
 </nav>
 
 
-<header class="bg-primary text-white" id="header">
-  <div class="container-fluid" id="search">
-    <div class="row">
-      <%= search_form_for @q, url: welcome_index_path, html: { method: :get } do |f| %>
-        <div class="col-sm-3"></div>
 
-        <div class="col-sm-6">
-          <div class="form-group input-group">
 
-            
 
-              <%= f.search_field :title_or_description_cont, class: "form-control", id: "search-field", placeholder: "Digite o que você procura ! Ex: Pedreiro" %>
-
-              <%= f.search_field :city_cont, class: "form-control", id: "search-field-city", placeholder: "Digite a cidade ou habilite a localização" %>
-
-              <%= hidden_field_tag :latitude, params[:latitude], class: "form-control", id: "latitude-field" %>
-
-              <%= hidden_field_tag :longitude, params[:longitude], class: "form-control", id: "longitude-field" %>
-
-              <%= button_tag type: 'submit', class: "btn btn-danger btn-block", id: "submit-button" do %>
-                <i class="fa fa-search"></i>
-              <% end %>
-
-              <%= link_to request.path, class: "btn btn-info btn-block", id: "refresh-button" do %> 
-                <i class="fa fa-refresh"></i>
-              <% end %>
-
-              <button onclick="getLocation(event)" class="btn btn-success btn-block" id="geolocation-button"><i class="fa fa-location-arrow"></i></button>
-            
-              <!--<input type="text" class="form-control">
-              <span class="input-group-btn">
-                  <button class="btn btn-default" type="button"><i class="fa fa-search"></i>
-                  </button>
-              </span>-->
-          </div>
-        </div>
-      <% end %>
-    </div>
-  </div>
-</header>
 
 <section id="sessao">
   <% if @ads.length > 0 %> 
@@ -74,7 +81,7 @@
                 <li class="list-group-item"><%= link_to '<i class="fa fa-whatsapp"></i> Entre em contato'.html_safe, "https://wa.me/#{ad.contact}", target: "_blank", class: "btn btn-outline btn-success btn-xs" %> </li>
 
   	            <% if @latitude != 0 && @longitude != 0 %>
-  	              <li class="list-group-item"><%= distance(@latitude, @longitude, ad.latitude, ad.longitude) %><b> KM</b></li>
+  	              <li class="list-group-item"><%= distance(@latitude, @longitude, ad.latitude, ad.longitude) %><b> KM de você</b></li>
   	            <% end %>
                 <li class="list-group-item"><%= link_to showad_path(ad), class: "btn btn-primary btn-xs", remote: true do %> Detalhes <% end %> </li>
   	          </ul>
@@ -86,15 +93,17 @@
   <% end %>
 </section>
 
-<footer class="footer">
-    <div class="navbar navbar-inverse navbar-fixed-bottom">
-        <div class="navbar-inner">
-            <div class="container-fluid">
-                
+<div class="container">
+    <hr>
+    <!-- Footer -->
+    <footer>
+        <div class="row">
+            <div class="col-lg-12">
+                <p></p>
             </div>
         </div>
-    </div>
-</footer>
+    </footer>
+</div>
 
 <%= render partial: "modals/ad_modal" %> 
 

@@ -2,10 +2,6 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-#header {
-	margin-top: -20px;
-	padding-top: 10px;
-}
 
 #sessao {	
 	padding-top: 10px;
@@ -13,42 +9,28 @@
 	overflow: hidden;
 }
 
-.footer {
-	position: absolute;
-}
 
 #search {
-	margin-top: 100px;
+	margin-top: 50px;
 }
 
 #search-field {
-	width: 350px;
+	margin-top: 3px;
+	margin-bottom: 3px;
 }
 
 #search-field-city {
-	width: 350px;
-	margin-top: 10px;
+
+	margin-top: 3px;
+	margin-bottom: 3px;
 }
 
-#submit-button {
-	width: 70px;
-	position: absolute;
-	left: 370px;
-}
+
 
 #refresh-button {
-	position: absolute;
-	left: 450px;
-	width: 70px;
-	top: -5px;
+   color:white !important
 }
 
-#geolocation-button {
-	position: absolute;
-	left: 530px;
-	width: 70px;
-	top: -5px;
-}
 
 .footer {
     position: absolute;
