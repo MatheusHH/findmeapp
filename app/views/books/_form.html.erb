@@ -6,7 +6,7 @@
     <div class="row">
       <div class="col-lg-6">
 
-        <%= form_with(model: book, local: true, role: 'form') do |form| %>
+        <%= form_with(model: book, local: true, html: { role: 'form' }) do |form| %>
           <% if book.errors.any? %>
             <div id="error_explanation">
               <h2><%= pluralize(book.errors.count, "error") %> prohibited this book from being saved:</h2>

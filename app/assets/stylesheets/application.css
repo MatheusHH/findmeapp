@@ -23,6 +23,16 @@
  	padding:0;
  }
 
+ .row, .actions {
+ 	margin-bottom: 10px;
+ }
+
+#menu-nav {
+	float: right;
+}
+
+
+
  
 
  
