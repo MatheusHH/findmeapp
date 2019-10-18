@@ -19,14 +19,22 @@
             </div>
           <% end %>
 
-          <div class="form-group">
-            <%= form.label :name %>
-            <%= form.text_field :name, class: "form-control" %>
+          <div class="row">
+            <div class="form-group">
+              <div class="col-lg-10">
+                <%= form.label :name %>
+                <%= form.text_field :name, class: "form-control" %>
+              </div>
+            </div>
           </div>
 
-          <div class="form-group">
-            <%= form.label :cpf %>
-            <%= form.text_field :cpf, class: "form-control" %>
+          <div class="row">
+            <div class="form-group">
+              <div class="col-lg-6">
+                <%= form.label :cpf %>
+                <%= form.text_field :cpf, class: "form-control" %>
+              </div>
+            </div>
           </div>
 
           <div id="phones">
@@ -39,10 +47,16 @@
             </div>
           </div>
           <br>
-          <div class="actions">
-            <%= form.submit 'Save', class: "btn btn-outline btn-success" %>
-            <%= link_to 'Back', customers_path, class: "btn btn-outline btn-primary" %>
+
+          <div class="row">
+            <div class="actions">
+              <div class="col-lg-6">
+                <%= form.submit 'Save', class: "btn btn-outline btn-success" %>
+                <%= link_to 'Back', customers_path, class: "btn btn-outline btn-primary" %>
+              </div>
+            </div>
           </div>
+
         <% end %>
 
       </div>

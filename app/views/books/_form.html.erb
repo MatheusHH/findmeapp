@@ -19,30 +19,54 @@
             </div>
           <% end %>
 
-          <div class="form-group">
-            <%= form.label :description %>
-            <%= form.text_area :description, class: "form-control" %>
+          <div class="row">
+            <div class="form-group">
+              <div class="col-lg-10">
+                <%= form.label :description %>
+                <%= form.text_area :description, class: "form-control" %>
+              </div>
+            </div>
           </div>
 
-          <div class="form-group">
-            <%= form.label :schedule %>
-            <%= form.text_field :schedule, class: "form-control", id: "datetimepicker" %>
+          <div class="row">
+            <div class="form-group">
+              <div class="col-lg-6">
+                <%= form.label :schedule %>
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                  <%= form.text_field :schedule, class: "form-control", id: "datetimepicker" %>
+                </div>
+              </div>
+            </div>
           </div>
 
-          <div class="form-group">
-            <%= form.label :status %>
-            <%= form.select :status, Book.statuses.keys.to_a, {}, class: "form-control" %>
+          <div class="row">
+            <div class="form-group">
+              <div class="col-lg-6">
+                <%= form.label :status %>
+                <%= form.select :status, Book.statuses.keys.to_a, {}, class: "form-control" %>
+              </div>
+            </div>
           </div>
 
-          <div class="form-group">
-            <%= form.label :customer_id %>
-            <%= form.select(:customer_id, Customer.where(user_id: current_user.id ).collect {|p| [ p.name, p.id ] }, {prompt: "Selecione o cliente"}, { class: "form-control" })%>
+          <div class="row">
+            <div class="form-group">
+              <div class="col-lg-6">
+                <%= form.label :customer_id %>
+                <%= form.select(:customer_id, Customer.where(user_id: current_user.id ).collect {|p| [ p.name, p.id ] }, {prompt: "Selecione o cliente"}, { class: "form-control" })%>
+              </div>
+            </div>
           </div>
 
-          <div class="actions">
-            <%= form.submit 'Save', class: "btn btn-outline btn-success" %>
-            <%= link_to 'Back', books_path, class: "btn btn-outline btn-primary" %>
+          <div class="row">
+            <div class="actions">
+              <div class="col-lg-6">
+                <%= form.submit 'Save', class: "btn btn-outline btn-success" %>
+                <%= link_to 'Back', books_path, class: "btn btn-outline btn-primary" %>
+              </div>
+            </div>
           </div>
+
         <% end %>
       </div>
         <!-- /.col-lg-6 (nested) -->

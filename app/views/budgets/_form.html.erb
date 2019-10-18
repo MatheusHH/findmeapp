@@ -18,14 +18,25 @@
             </div>
           <% end %>
 
-          <div class="form-group">
-            <%= form.label :customer_id %>
-            <%= form.select(:customer_id, Customer.where(user_id: current_user.id ).collect {|p| [ p.name, p.id ] }, {prompt: "Selecione o cliente"}, { class: "form-control" })%>
+          <div class="row">
+            <div class="form-group">
+              <div class="col-lg-6">
+                <%= form.label :customer_id %>
+                <%= form.select(:customer_id, Customer.where(user_id: current_user.id ).collect {|p| [ p.name, p.id ] }, {prompt: "Selecione o cliente"}, { class: "form-control" })%>
+              </div>
+            </div>
           </div>
 
-          <div class="form-group">
-            <%= form.label :duedate %>
-            <%= form.text_field :duedate, class: "form-control", id: "datepicker" %>
+          <div class="row">
+            <div class="form-group">
+              <div class="col-lg-6">
+                <%= form.label :duedate %>
+                <div class="input-group">
+                  <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                  <%= form.text_field :duedate, class: "form-control", id: "datepicker" %>
+                </div>
+              </div>
+            </div>
           </div>
 
           <div id="budgetservices">
@@ -39,20 +50,39 @@
           </div>
           <br>
           
-          <div class="form-group">
-            <%= form.label :totalprice %>
-            <%= form.text_field :totalprice, class: "form-control" %>
+          <div class="row">
+            <div class="form-group">
+              <div class="col-lg-6">
+                <%= form.label :totalprice %>
+                <div class="input-group">
+                  <span class="input-group-addon"><%= @budget.totalprice.currency.symbol %></span>
+                  <%= form.text_field :totalprice, class: "form-control" %>
+                </div>
+              </div>
+            </div>
           </div>
 
-          <div class="form-group">
-            <%= form.label :discount %>
-            <%= form.text_field :discount, class: "form-control" %>
+          <div class="row">
+            <div class="form-group">
+              <div class="col-lg-6">
+                <%= form.label :discount %>
+                <div class="input-group">
+                  <span class="input-group-addon"><%= @budget.discount.currency.symbol %></span>
+                  <%= form.text_field :discount, class: "form-control" %>
+                </div>
+              </div>
+            </div>
           </div>
 
-          <div class="actions">
-            <%= form.submit 'Save', class: "btn btn-outline btn-success" %>
-            <%= link_to 'Back', budgets_path, class: "btn btn-outline btn-primary" %>
+          <div class="row">
+            <div class="actions">
+              <div class="col-lg-6">
+                <%= form.submit 'Save', class: "btn btn-outline btn-success" %>
+                <%= link_to 'Back', budgets_path, class: "btn btn-outline btn-primary" %>
+              </div>
+            </div>
           </div>
+
         <% end %>
       </div>
         <!-- /.col-lg-6 (nested) -->
