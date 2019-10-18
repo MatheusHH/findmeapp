@@ -36,7 +36,7 @@
               </div>
             </div>
           </div>
-
+          <hr>
           <div id="phones">
             <%= form.fields_for :phones do |phone| %>
               <%= render 'customers/phones/phone_fields', :f => phone %>
@@ -46,7 +46,64 @@
               <%= link_to_add_association 'Add phone', form, :phones, partial: 'customers/phones/phone_fields', class: "btn btn-outline btn-primary btn-xs" %>
             </div>
           </div>
-          <br>
+          <hr>
+
+          <%= form.fields_for :address do |ff| %>
+            <div class="row">
+              <div class="form-group">
+                <div class="col-lg-6">
+                  <%= ff.label :cep %>
+                  <%= ff.text_field :cep, class: "form-control" %>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="form-group">
+                <div class="col-lg-10">
+                  <%= ff.label :street %>
+                  <%= ff.text_field :street, class: "form-control" %>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="form-group">
+                <div class="col-lg-8">
+                  <%= ff.label :neighborhood %>
+                  <%= ff.text_field :neighborhood, class: "form-control" %>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="form-group">
+                <div class="col-lg-6">
+                  <%= ff.label :city %>
+                  <%= ff.text_field :city, class: "form-control" %>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="form-group">
+                <div class="col-lg-6">
+                  <%= ff.label :state %>
+                  <%= ff.text_field :state, class: "form-control" %>
+                </div>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="form-group">
+                <div class="col-lg-10">
+                  <%= ff.label :email %>
+                  <%= ff.text_field :email, class: "form-control" %>
+                </div>
+              </div>
+            </div>
+
+          <% end %>
 
           <div class="row">
             <div class="actions">
