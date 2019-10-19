@@ -80,7 +80,7 @@
               <div class="form-group">
                 <div class="col-lg-6">
                   <%= ff.label :city %>
-                  <%= ff.text_field :city, class: "form-control" %>
+                  <%= ff.select :city, options_for_select(cities, selected: @customer.address.city), {}, class: "form-control" %>
                 </div>
               </div>
             </div>
@@ -89,7 +89,7 @@
               <div class="form-group">
                 <div class="col-lg-6">
                   <%= ff.label :state %>
-                  <%= ff.text_field :state, class: "form-control" %>
+                  <%= ff.select :state, options_for_select(state, selected: @customer.address.state), {}, class: "form-control" %>
                 </div>
               </div>
             </div>
