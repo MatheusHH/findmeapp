@@ -32,9 +32,11 @@ class CustomersController < ApplicationController
       if @customer.save
         format.html { redirect_to customers_url, notice: 'Customer was successfully created.' }
         format.json { render :show, status: :created, location: @customer }
+        format.js {}
       else
         format.html { render :new }
         format.json { render json: @customer.errors, status: :unprocessable_entity }
+        format.js {}
       end
     end
   end

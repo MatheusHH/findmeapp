@@ -15,6 +15,8 @@ class BooksController < ApplicationController
   # GET /books/new
   def new
     @book = Book.new
+    @customer = Customer.new
+    @customer.build_address
   end
 
   # GET /books/1/edit

@@ -1,23 +1,25 @@
-<div class="panel panel-default">
-  <div class="panel-heading">
-      <!-- Title if you wanna do it-->
-  </div>
-  <div class="panel-body">
-    <div class="row">
-      <div class="col-lg-6">
+<div class="modal fade" id="newCustomerModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="exampleModalLabel">New Customer</h4>
+      </div>
+      <div class="modal-body">
+        <%= form_with(model: @customer, remote: true, html: { role: 'form' }) do |form| %>
 
-        <%= form_with(model: customer, local: true, html: { role: 'form' }) do |form| %>
-          <% if customer.errors.any? %>
+          <% if @customer.errors.any? %>
             <div id="error_explanation">
-              <h2><%= pluralize(customer.errors.count, "error") %> prohibited this customer from being saved:</h2>
+              <h2><%= pluralize(@customer.errors.count, "error") %> prohibited this customer from being saved:</h2>
 
               <ul>
-              <% customer.errors.full_messages.each do |message| %>
+              <% @customer.errors.full_messages.each do |message| %>
                 <li><%= message %></li>
               <% end %>
               </ul>
             </div>
           <% end %>
+      
 
           <div class="row">
             <div class="form-group">
@@ -36,6 +38,7 @@
               </div>
             </div>
           </div>
+
           <hr>
           <div id="phones">
             <%= form.fields_for :phones do |phone| %>
@@ -105,21 +108,16 @@
 
           <% end %>
 
-          <div class="row">
-            <div class="actions">
-              <div class="col-lg-6">
-                <%= form.submit 'Save', class: "btn btn-outline btn-success" %>
-                <%= link_to 'Back', customers_path, class: "btn btn-outline btn-primary" %>
-              </div>
-            </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <%= submit_tag "Enviar", class: "btn btn-primary" %>
           </div>
-
+        
         <% end %>
 
+
       </div>
-        <!-- /.col-lg-6 (nested) -->
     </div>
-    <!-- /.row (nested) -->
   </div>
-  <!-- /.panel-body -->
 </div>
+
