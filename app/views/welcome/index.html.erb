@@ -11,7 +11,7 @@
 
     <%= search_form_for @q, url: welcome_index_path, html: { class: "navbar-form navbar-right", method: :get } do |f| %>
       <div class="input-group input-group-sm">
-        <%= f.search_field :city_cont, class: "form-control", id: "search-field-city", placeholder: "Digite a cidade ou habilite a localização" %>
+        <%= f.search_field :city_cont, class: "form-control", id: "search-field-city", placeholder: "Digite ou habilite local" %>
 
         <span class="input-group-btn input-group-sm">
           <button onclick="getLocation(event)" class="btn btn-success btn-sm" id="geolocation-button"><i class="glyphicon glyphicon-map-marker"></i></button>
@@ -19,7 +19,7 @@
       </div>
 
       <div class="input-group input-group-sm">
-        <%= f.search_field :title_or_description_cont, class: "form-control", id: "search-field", placeholder: "Digite o que você procura ! Ex: Pedreiro" %>
+        <%= f.search_field :title_or_description_cont, class: "form-control", id: "search-field", placeholder: "Digite o que você procura!" %>
 
           <span class="input-group-btn input-group-sm">
             <%= button_tag type: 'submit', class: "btn btn-danger", id: "submit-button" do %>
@@ -43,13 +43,6 @@
 
     <% end %>
 
-
-    <!--<form class="navbar-form navbar-left">
-      <div class="form-group">
-        <input type="text" class="form-control" placeholder="Search">
-      </div>
-      <button type="submit" class="btn btn-default">Submit</button>
-    </form>-->
   </div><!-- /.container-fluid -->
 </nav>
 

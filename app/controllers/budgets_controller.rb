@@ -15,6 +15,9 @@ class BudgetsController < ApplicationController
   # GET /budgets/new
   def new
     @budget = Budget.new
+    @customer = Customer.new
+    @service = Service.new
+    @customer.build_address
   end
 
   # GET /budgets/1/edit
