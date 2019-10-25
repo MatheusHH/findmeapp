@@ -6,9 +6,9 @@ class User < ApplicationRecord
   #:registerable
   enum role: [ :admin, :customer ]
 
-  has_many :ads
-  has_many :customers
-  has_many :books
-  has_many :services
-  has_many :budgets
+  has_many :ads, dependent: :destroy
+  has_many :customers, dependent: :destroy
+  has_many :books, dependent: :destroy
+  has_many :services, dependent: :destroy
+  has_many :budgets, dependent: :destroy
 end
