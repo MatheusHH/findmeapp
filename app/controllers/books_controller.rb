@@ -1,5 +1,6 @@
 class BooksController < ApplicationController
   before_action :set_book, only: [:show, :edit, :update, :destroy]
+  before_action :set_models_to_modal, only: [:show, :edit, :update, :new, :create]
 
   # GET /books
   # GET /books.json
@@ -15,8 +16,6 @@ class BooksController < ApplicationController
   # GET /books/new
   def new
     @book = Book.new
-    @customer = Customer.new
-    @customer.build_address
   end
 
   # GET /books/1/edit
@@ -69,6 +68,11 @@ class BooksController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_book
       @book = Book.find(params[:id])
+    end
+
+    def set_models_to_modal
+      @customer = Customer.new
+      @customer.build_address
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

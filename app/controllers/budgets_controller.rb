@@ -1,5 +1,6 @@
 class BudgetsController < ApplicationController
   before_action :set_budget, only: [:show, :edit, :update, :destroy]
+  before_action :set_models_to_modal, only: [:show, :edit, :update, :new, :create]
 
   # GET /budgets
   # GET /budgets.json
@@ -15,9 +16,6 @@ class BudgetsController < ApplicationController
   # GET /budgets/new
   def new
     @budget = Budget.new
-    @customer = Customer.new
-    @service = Service.new
-    @customer.build_address
   end
 
   # GET /budgets/1/edit
@@ -70,6 +68,12 @@ class BudgetsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_budget
       @budget = Budget.find(params[:id])
+    end
+
+    def set_models_to_modal
+      @customer = Customer.new
+      @customer.build_address
+      @service = Service.new
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

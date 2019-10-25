@@ -1,2 +1,7 @@
 $('#newCustomerModal').modal('hide');
+<% if @customer.errors.any? %>
+  alert("ERROR(S): <%= j @customer.errors.full_messages.join('; ') %>")
+<% else %>
+  alert("Post created");
+<% end %>
 window.location.reload();
