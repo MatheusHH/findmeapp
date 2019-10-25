@@ -9,18 +9,19 @@ class Budget < ApplicationRecord
   validates :user_id, presence: true
   validates_associated :budget_services
 
-  after_validation :set_total_price, on: [ :create, :update ]
+  before_save :set_total_price, on: [ :create, :update ]
 
   monetize :totalprice_cents
   monetize :discount_cents
 
   accepts_nested_attributes_for :budget_services, reject_if: :all_blank, allow_destroy: true
 
-  def set_total_price
-  	total = 0
-  	self.budget_services.each do |budget_service|
-  	  total += budget_service.service.price
-  	end
-  	self.totalprice = total
-  end
+  private
+    def set_total_price
+    	total = 0
+    	self.budget_services.each do |budget_service|
+    	  total += budget_service.service.price
+    	end
+    	self.totalprice = total
+    end
 end
