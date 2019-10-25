@@ -2,8 +2,9 @@ class Service < ApplicationRecord
 	belongs_to :user
 	has_many :budgets, through: :budget_services
 
-	validates :name, :description, :price, presence: :true
-	validates :user_id, presence: :true
+	validates :name, :description, presence: true
+	validates :price, presence: true,  numericality: true
+	validates :user_id, presence: true
 
 	monetize :price_cents
 end

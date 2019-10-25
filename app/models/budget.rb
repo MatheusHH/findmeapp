@@ -4,7 +4,7 @@ class Budget < ApplicationRecord
   has_many :services, through: :budget_services
   belongs_to :user
 
-  validates :customer_id, :duedate, presence: :true
+  validates :customer_id, :duedate, presence: true
   validates :totalprice, presence: true, numericality: true
   validates :user_id, presence: true
   validates_associated :budget_services

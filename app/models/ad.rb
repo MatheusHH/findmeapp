@@ -1,7 +1,7 @@
 class Ad < ApplicationRecord
   belongs_to :user
 
-  validates :title, :description, :contact, presence: :true
+  validates :title, :description, :contact, presence: true
   validates :user_id, presence: true
 
   geocoded_by :address
