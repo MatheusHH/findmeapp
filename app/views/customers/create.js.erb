@@ -1,7 +1,7 @@
-$('#newCustomerModal').modal('hide');
 <% if @customer.errors.any? %>
-  alert("ERROR(S): <%= j @customer.errors.full_messages.join('; ') %>")
+  bootbox.alert("ERROR(S): <%= j @customer.errors.full_messages.join('; ') %>")
 <% else %>
-  alert("Post created");
+  bootbox.alert("Cliente criado");
+  $('#newCustomerModal').modal('hide');
+  window.location.reload();
 <% end %>
-window.location.reload();

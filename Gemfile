@@ -30,6 +30,7 @@ gem 'bootstrap3-datetimepicker-rails', '~> 4.17.47'
 gem 'money-rails', '~>1.12'
 gem 'city-state'
 gem 'prawn-rails'
+gem 'bootbox-rails', '~>0.4'
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'

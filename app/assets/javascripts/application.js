@@ -20,6 +20,7 @@
 //= require confirm-modal
 //= require cocoon
 //= require cocoon_callbacks
+//= require bootbox
 //= require turbolinks
 //= require_tree .
 

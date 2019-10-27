@@ -49,6 +49,7 @@ GEM
     arel (9.0.0)
     bcrypt (3.1.13)
     bindex (0.8.1)
+    bootbox-rails (0.5.0)
     bootsnap (1.4.5)
       msgpack (~> 1.0)
     bootstrap3-datetimepicker-rails (4.17.47)
@@ -271,6 +272,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bootbox-rails (~> 0.4)
   bootsnap (>= 1.1.0)
   bootstrap3-datetimepicker-rails (~> 4.17.47)
   bootstrap_sb_admin_base_v2

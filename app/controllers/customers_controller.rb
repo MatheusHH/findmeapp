@@ -4,7 +4,13 @@ class CustomersController < ApplicationController
   # GET /customers
   # GET /customers.json
   def index
-    @customers = policy_scope(Customer).all.page(params[:page]).per(5)
+    if params[:q]
+      @q = Customer.where(user_id: current_user.id).ransack(params[:q])
+      @customers = @q.result.page(params[:page]).per(5)
+    else
+      @q = Customer.none.ransack
+      @customers = policy_scope(Customer).all.page(params[:page]).per(5)
+    end
   end
 
   # GET /customers/1

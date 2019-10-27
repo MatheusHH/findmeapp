@@ -60,7 +60,7 @@
                 <%= form.label :totalprice %>
                 <div class="input-group">
                   <span class="input-group-addon"><%= @budget.totalprice.currency.symbol %></span>
-                  <%= form.text_field :totalprice, class: "form-control" %>
+                  <%= form.text_field :totalprice, class: "form-control", readonly: true %>
                 </div>
               </div>
             </div>

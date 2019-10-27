@@ -1,8 +1,22 @@
 <h1>Customers</h1>
 <div class="panel panel-default">
     <div class="panel-heading">
-        
+      <%= search_form_for @q, url: customers_path, html: { method: :get } do |c| %>
+        <div class="row">
+          <div class="col-lg-5">
+            <div class="input-group input-group-sm">
+              <%= c.search_field :name_or_cpf_cont, class: "form-control" %>
+              <span class="input-group-btn input-group-sm">
+                <%= button_tag type: 'submit', class: "btn btn-success" do %>
+                <i class="fa fa-search"></i>
+                <% end %>
+              </span>
+            </div>
+          </div>
+        </div>
+      <% end %>
     </div>
+
     <!-- /.panel-heading -->
     <div class="panel-body">
         <div class="table-responsive">
