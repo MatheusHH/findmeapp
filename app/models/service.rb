@@ -1,7 +1,7 @@
 class Service < ApplicationRecord
 	belongs_to :user
 	has_many :budgets, through: :budget_services
-	has_many :budget_services
+	has_many :budget_services, dependent: :restrict_with_error
 
 	validates :name, :description, presence: true
 	validates :price, presence: true,  numericality: true
