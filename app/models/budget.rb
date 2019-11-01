@@ -1,6 +1,6 @@
 class Budget < ApplicationRecord
   belongs_to :customer
-  has_many :budget_services
+  has_many :budget_services, dependent: :destroy
   has_many :services, through: :budget_services
   belongs_to :user
 
