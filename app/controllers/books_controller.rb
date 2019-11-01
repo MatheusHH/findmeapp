@@ -5,7 +5,11 @@ class BooksController < ApplicationController
   # GET /books
   # GET /books.json
   def index
-    @books = policy_scope(Book).all.page(params[:page]).per(5)
+    if params[:initialdate] && params[:finaldate] != ""
+      @books = Book.where(user_id: current_user.id).search_by_date(params[:initialdate], params[:finaldate]).page(params[:page]).per(5)
+    else
+      @books = policy_scope(Book).all.page(params[:page]).per(5)
+    end
   end
 
   # GET /books/1

@@ -23,7 +23,7 @@
             <div class="form-group">
               <div class="col-lg-10">
                 <%= form.label :name %>
-                <%= form.text_field :name, class: "form-control" %>
+                <%= form.text_field :name, class: "form-control", placeholder: "Digite o nome do cliente" %>
               </div>
             </div>
           </div>
@@ -32,7 +32,7 @@
             <div class="form-group">
               <div class="col-lg-6">
                 <%= form.label :cpf %>
-                <%= form.text_field :cpf, class: "form-control" %>
+                <%= form.text_field :cpf, class: "form-control", placeholder: "Digite o CPF" %>
               </div>
             </div>
           </div>
@@ -43,7 +43,7 @@
             <% end %>
 
             <div class="links">
-              <%= link_to_add_association 'Add phone', form, :phones, partial: 'customers/phones/phone_fields', class: "btn btn-outline btn-primary btn-xs" %>
+              <%= link_to_add_association 'Novo Telef.', form, :phones, partial: 'customers/phones/phone_fields', class: "btn btn-outline btn-primary btn-xs" %>
             </div>
           </div>
           <hr>
@@ -53,7 +53,7 @@
               <div class="form-group">
                 <div class="col-lg-6">
                   <%= ff.label :cep %>
-                  <%= ff.text_field :cep, class: "form-control" %>
+                  <%= ff.text_field :cep, class: "form-control", placeholder: "Digite o CEP" %>
                 </div>
               </div>
             </div>
@@ -62,7 +62,7 @@
               <div class="form-group">
                 <div class="col-lg-10">
                   <%= ff.label :street %>
-                  <%= ff.text_field :street, class: "form-control" %>
+                  <%= ff.text_field :street, class: "form-control", placeholder: "Digite a Rua" %>
                 </div>
               </div>
             </div>
@@ -71,7 +71,7 @@
               <div class="form-group">
                 <div class="col-lg-8">
                   <%= ff.label :neighborhood %>
-                  <%= ff.text_field :neighborhood, class: "form-control" %>
+                  <%= ff.text_field :neighborhood, class: "form-control", placeholder: "Digite o nome da Rua" %>
                 </div>
               </div>
             </div>
@@ -98,7 +98,7 @@
               <div class="form-group">
                 <div class="col-lg-10">
                   <%= ff.label :email %>
-                  <%= ff.text_field :email, class: "form-control" %>
+                  <%= ff.text_field :email, class: "form-control", placeholder: "exemplo@email.com" %>
                 </div>
               </div>
             </div>

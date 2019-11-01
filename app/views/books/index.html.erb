@@ -2,6 +2,27 @@
 
 <div class="panel panel-default">
     <div class="panel-heading">
+      <%= form_tag(books_path, method: :get, html: {class: "form-inline"}) do %>
+        <div class="row">
+          <div class="col-lg-3">
+            <div class="input-group">
+              <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+              <%= text_field_tag :initialdate, params[:initialdate], class: "form-control", placeholder: "" %>
+            </div>
+          </div>
+          <div class="col-lg-3">
+            <div class="input-group">
+              <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+              <%= text_field_tag :finaldate, params[:finaldate], class: "form-control", placeholder: "" %>
+            </div>
+          </div>
+          <div class="col-lg-3">
+            <%= button_tag type: 'submit', class: "btn btn-success" do %>
+            <i class="fa fa-search"></i>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
         
     </div>
     <!-- /.panel-heading -->
@@ -44,3 +65,16 @@
     <%= paginate @books %>
   </div>
 </div>
+
+<script type="text/javascript">
+    $(function () {
+        $('#initialdate').datepicker({
+            locale: 'pt-br',
+            format: 'YYYY-MM-DD hh:mm'
+        });
+        $('#finaldate').datepicker({
+            locale: 'pt-br',
+            format: 'YYYY-MM-DD hh:mm'
+        });
+    });
+</script>

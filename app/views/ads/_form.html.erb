@@ -23,7 +23,7 @@
             <div class="form-group">
               <div class="col-lg-6">
                 <%= form.label :title %>
-                <%= form.text_field :title, class: "form-control" %>
+                <%= form.text_field :title, class: "form-control", placeholder: "Digite o título do anúncio" %>
               </div>
             </div>
           </div>
@@ -32,7 +32,7 @@
             <div class="form-group">
               <div class="col-lg-10">
                 <%= form.label :description %>
-                <%= form.text_area :description, class: "form-control", rows: 5 %>
+                <%= form.text_area :description, class: "form-control", placeholder: "Digite a descrição do anúncio", rows: 5 %>
               </div>
             </div>
           </div>
@@ -41,7 +41,7 @@
             <div class="form-group">
               <div class="col-lg-6">
                 <%= form.label :contact %>
-                <%= form.text_field :contact, class: "form-control" %>
+                <%= form.text_field :contact, class: "form-control", placeholder: "Contato do whatsapp" %>
               </div>
             </div>
           </div>
@@ -50,7 +50,7 @@
             <div class="form-group">
               <div class="col-lg-10">
                 <%= form.label :street %>
-                <%= form.text_field :street, class: "form-control" %>
+                <%= form.text_field :street, class: "form-control", placeholder: "Rua do anúncio" %>
               </div>
             </div>
           </div>
