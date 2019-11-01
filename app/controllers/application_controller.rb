@@ -4,6 +4,7 @@ class ApplicationController < ActionController::Base
 	layout :layout_by_resource
 
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
+  rescue_from ActiveRecord::DeleteRestrictionError, with: :impossible_to_delete
 	
   	protected
 
@@ -31,6 +32,11 @@ class ApplicationController < ActionController::Base
 
     def user_not_authorized
       flash[:alert] = "You are not authorized to perform this action."
+      redirect_to(request.referrer || root_path)
+    end
+
+    def impossible_to_delete
+      flash[:alert] = "You cannot delete this record because exists another related ."
       redirect_to(request.referrer || root_path)
     end
 
