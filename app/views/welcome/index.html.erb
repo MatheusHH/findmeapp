@@ -10,36 +10,33 @@
     </ul>
 
     <%= search_form_for @q, url: welcome_index_path, html: { class: "navbar-form navbar-right", method: :get } do |f| %>
-      <div class="input-group input-group-sm">
-        <%= f.search_field :city_cont, class: "form-control", id: "search-field-city", placeholder: "Digite ou habilite local" %>
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="input-group input-group-md">
+            <%= f.search_field :city_cont, class: "form-control", id: "search-field-city", placeholder: "Digite ou habilite local" %>
 
-        <span class="input-group-btn input-group-sm">
-          <button onclick="getLocation(event)" class="btn btn-success btn-sm" id="geolocation-button"><i class="glyphicon glyphicon-map-marker"></i></button>
-        </span>
+            <span class="input-group-btn input-group-md">
+              <button onclick="getLocation(event)" class="btn btn-success btn-md" id="geolocation-button"><i class="glyphicon glyphicon-map-marker"></i></button>
+            </span>
+          </div>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="input-group input-group-md">
+            <%= f.search_field :title_or_description_cont, class: "form-control", id: "search-field", placeholder: "Digite o que você procura!" %>
+              <span class="input-group-btn input-group-md">
+                <%= button_tag type: 'submit', class: "btn btn-danger", id: "submit-button" do %>
+                  <i class="fa fa-search"></i>
+                <% end %>
+              </span>
+          </div>
+        </div>
       </div>
-
-      <div class="input-group input-group-sm">
-        <%= f.search_field :title_or_description_cont, class: "form-control", id: "search-field", placeholder: "Digite o que você procura!" %>
-
-          <span class="input-group-btn input-group-sm">
-            <%= button_tag type: 'submit', class: "btn btn-danger", id: "submit-button" do %>
-              <i class="fa fa-search"></i>
-            <% end %>
-          </span>
-      </div>
-        
-      
       
 
       <%= hidden_field_tag :latitude, params[:latitude], class: "form-control", id: "latitude-field" %>
 
       <%= hidden_field_tag :longitude, params[:longitude], class: "form-control", id: "longitude-field" %>
-
-      
-
-      <%= link_to request.path, class: "btn btn-info btn-sm", id: "refresh-button" do %> 
-        <i class="fa fa-refresh"></i>
-      <% end %>
 
     <% end %>
 
@@ -100,8 +97,10 @@
 
 <%= render partial: "modals/ad_modal" %> 
 
-<div class="row">
-  <div class="text-center">
-    <%= paginate @ads %>
+<div class="container">
+  <div class="row">
+    <div class="text-center">
+      <%= paginate @ads %>
+    </div>
   </div>
 </div>
