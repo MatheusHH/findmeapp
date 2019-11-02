@@ -3,6 +3,7 @@ class Customer < ApplicationRecord
   has_many :phones, dependent: :destroy
   has_many :books, dependent: :destroy
   has_one :address, dependent: :destroy
+  has_many :budgets, dependent: :destroy
 
   validates :name, :cpf, presence: true
   validates :user_id, presence: true

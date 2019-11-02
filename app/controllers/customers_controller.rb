@@ -5,7 +5,7 @@ class CustomersController < ApplicationController
   # GET /customers.json
   def index
     if params[:q]
-      @q = Customer.where(user_id: current_user.id).ransack(params[:q])
+      @q = policy_scope(Customer).all.ransack(params[:q])
       @customers = @q.result.page(params[:page]).per(5)
     else
       @q = Customer.none.ransack

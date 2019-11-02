@@ -6,7 +6,7 @@ class AdsController < ApplicationController
   # GET /ads.json
   def index
     if params[:q]
-      @q = Ad.where(user_id: current_user.id).ransack(params[:q])
+      @q = policy_scope(Ad).all.ransack(params[:q])
       @ads = @q.result.page(params[:page]).per(5)
     else
       @q = Ad.none.ransack

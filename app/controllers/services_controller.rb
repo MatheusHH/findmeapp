@@ -4,7 +4,13 @@ class ServicesController < ApplicationController
   # GET /services
   # GET /services.json
   def index
-    @services = policy_scope(Service).all.page(params[:page]).per(5)
+    if params[:q]
+      @q = policy_scope(Service).all.ransack(params[:q])
+      @services = @q.result.page(params[:page]).per(5)
+    else
+      @q = Service.none.ransack
+      @services = policy_scope(Service).all.page(params[:page]).per(5)
+    end
   end
 
   # GET /services/1

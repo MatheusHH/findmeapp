@@ -5,7 +5,13 @@ class BudgetsController < ApplicationController
   # GET /budgets
   # GET /budgets.json
   def index
-    @budgets = policy_scope(Budget).all.page(params[:page]).per(5)
+    if params[:q]
+      @q = policy_scope(Budget).all.ransack(params[:q])
+      @budgets = @q.result.includes(:customer).page(params[:page]).per(5)
+    else
+      @q = Budget.none.ransack
+      @budgets = policy_scope(Budget).all.page(params[:page]).per(5)
+    end
   end
 
   # GET /budgets/1
