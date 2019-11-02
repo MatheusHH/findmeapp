@@ -1,7 +1,9 @@
-<% if @service.errors.any? %>
-  bootbox.alert("Erros(s): <%= j @service.errors.full_messages.join('; ') %>")
-<% else %>
-  bootbox.alert("Serviço criado");
-  $('#newServiceModal').modal('hide');
-  window.location.reload();
-<% end %>
+$(function () {
+	<% if @service.errors.any? %>
+	  bootbox.alert("Erros(s): <%= j @service.errors.full_messages.join('; ') %>")
+	<% else %>
+	  bootbox.alert("Serviço criado");
+	  $('#newServiceModal').modal('hide');
+	  window.location.reload();
+	<% end %>
+});

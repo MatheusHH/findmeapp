@@ -1,7 +1,11 @@
-<% if @customer.errors.any? %>
-  bootbox.alert("ERROR(S): <%= j @customer.errors.full_messages.join('; ') %>")
-<% else %>
-  bootbox.alert("Cliente criado");
-  $('#newCustomerModal').modal('hide');
-  window.location.reload();
-<% end %>
+$(function () {
+	<% if @customer.errors.any? %>
+	  bootbox.alert("ERROR(S): <%= j @customer.errors.full_messages.join('; ') %>")
+	<% else %>
+	  bootbox.alert("Cliente criado");
+	  $('#newCustomerModal').modal('hide');
+	  window.location.reload();
+	<% end %>
+});
+
+
