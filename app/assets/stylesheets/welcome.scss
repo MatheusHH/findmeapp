@@ -24,7 +24,13 @@
 	margin-bottom: 3px;
 }
 
+.nav-second-level a:hover {
+	color: green;
+}
 
+a.active:hover {
+	color:green;
+}
 
 #refresh-button {
    color:white !important

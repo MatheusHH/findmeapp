@@ -5,5 +5,11 @@
 //= require jquery-ui/widgets/datepicker
 //= require jquery-ui/i18n/datepicker-pt-BR
 
+$(document).on 'turbolinks:load', ->
+  $('#datepicker').datepicker
+    locale: 'pt-br'
+    format: 'YYYY-MM-DD hh:mm'
+  return
+
 
 

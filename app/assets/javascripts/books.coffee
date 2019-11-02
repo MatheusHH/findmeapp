@@ -6,4 +6,20 @@
 //= require moment/pt-br
 //= require bootstrap-datetimepicker
 
+$(document).on 'turbolinks:load', ->
+  $('#datetimepicker').datetimepicker
+    locale: 'pt-br'
+    format: 'DD-MM-YYYY hh:mm'
+
+  $('#initialdate').datepicker
+    locale: 'pt-br'
+    format: 'YYYY-MM-DD hh:mm'
+
+  $('#finaldate').datepicker
+    locale: 'pt-br'
+    format: 'YYYY-MM-DD hh:mm'
+  return
+  
+
+
 

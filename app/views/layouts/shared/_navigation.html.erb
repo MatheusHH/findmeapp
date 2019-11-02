@@ -29,42 +29,46 @@
   <div class="navbar-default sidebar" role="navigation">
     <div class="sidebar-nav navbar-collapse">
       <ul class="nav" id="side-menu">
-        <li>
-          <% if policy(current_user).index? %>
-              <%= link_to users_path, {style: "color: #006FFF"} do %>
-                <i class="fa fa-users"></i> Users
+        <li class="active">
+          <a href="#"><i class="fa fa-angle-double-right"></i> Menu de Opções<span class="fa arrow"></span></a> <ul class="nav nav-second-level collapse in" aria-expanded="true"> 
+            <li>
+              <% if policy(current_user).index? %>
+                  <%= link_to users_path do %>
+                    <i class="fa fa-users"></i> Users
+                  <% end %>
               <% end %>
-          <% end %>
-        </li>
-        <li>
-            <%= link_to ads_path, {style: "color: #006FFF"} do %>
-              <i class="fa fa-list"></i> Meus Anúncios
-            <% end %>
-        </li>
-        <li>
-            <%= link_to customers_path, {style: "color: #006FFF"} do %>
-              <i class="fa fa-exchange"></i> Meus Clientes
-            <% end %>
-        </li>
-        <li>
-            <%= link_to books_path, {style: "color: #006FFF"} do %>
-              <i class="fa fa-book"></i> Minha Agenda
-            <% end %>
-        </li>
-        <li>
-            <%= link_to services_path, {style: "color: #006FFF"} do %>
-              <i class="fa fa-tasks"></i> Meus Serviços
-            <% end %>
-        </li>
-         <li>
-            <%= link_to budgets_path, {style: "color: #006FFF"} do %>
-              <i class="fa fa-money"></i> Meus Orçamentos
-            <% end %>
-        </li>
-        <li>
-            <%= link_to "#", {style: "color: #006FFF"} do %>
-              <i class="fa fa-bar-chart-o"></i> Relatórios Gráficos
-            <% end %>
+            </li>
+            <li>
+                <%= link_to ads_path do %>
+                  <i class="fa fa-list"></i> Meus Anúncios
+                <% end %>
+            </li>
+            <li>
+                <%= link_to customers_path do %>
+                  <i class="fa fa-exchange"></i> Meus Clientes
+                <% end %>
+            </li>
+            <li>
+                <%= link_to books_path do %>
+                  <i class="fa fa-book"></i> Minha Agenda
+                <% end %>
+            </li>
+            <li>
+                <%= link_to services_path do %>
+                  <i class="fa fa-tasks"></i> Meus Serviços
+                <% end %>
+            </li>
+             <li>
+                <%= link_to budgets_path do %>
+                  <i class="fa fa-money"></i> Meus Orçamentos
+                <% end %>
+            </li>
+            <li>
+                <%= link_to "#" do %>
+                  <i class="fa fa-bar-chart-o"></i> Relatórios Gráficos
+                <% end %>
+            </li>
+          </ul>
         </li>
       </ul>
     </div>
