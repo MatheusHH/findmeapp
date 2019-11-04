@@ -3,6 +3,106 @@
     <div class="col-lg-12">
       <h1 class="page-header">Dashboard</h1>
     </div>
+
+	<div class="row">
+        <div class="col-lg-3 col-md-6">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                	<br>
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <i class="fa fa-book fa-5x"></i>
+                        </div>
+                        <div class="col-xs-9 text-right">
+                            <div class="huge"><%= @books_total %></div>
+                            <br>
+                            <div>Agendamentos</div>
+                        </div>
+                    </div>
+                </div>
+                <%= link_to books_path do %>
+                    <div class="panel-footer" id="primary">
+                        <span class="pull-left">View Details</span>
+                        	<span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                        	<div class="clearfix"></div>
+                    </div>
+                <% end %>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+            <div class="panel panel-green">
+                <div class="panel-heading">
+                	<br>
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <i class="fa fa-tasks fa-5x"></i>
+                        </div>
+                        <div class="col-xs-9 text-right">
+                            <div class="huge"><%= @services_total %></div>
+                            <br>
+                            <div>Serviços</div>
+                        </div>
+                    </div>
+                </div>
+                <%= link_to services_path do %>
+                    <div class="panel-footer">
+                        <span class="pull-left">View Details</span>
+                        <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                        <div class="clearfix"></div>
+                    </div>
+                <% end %>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+            <div class="panel panel-yellow">
+                <div class="panel-heading">
+                	<br>
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <i class="fa fa-list fa-5x"></i>
+                        </div>
+                        <div class="col-xs-9 text-right">
+                            <div class="huge"><%= @ads_total %></div>
+                            <br>
+                            <div>Anúncios</div>
+                        </div>
+                    </div>
+                </div>
+                <%= link_to ads_path do %>
+                    <div class="panel-footer">
+                        <span class="pull-left">View Details</span>
+                        <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                        <div class="clearfix"></div>
+                    </div>
+                <% end %>
+            </div>
+        </div>
+        <div class="col-lg-3 col-md-6">
+            <div class="panel panel-red">
+                <div class="panel-heading">
+                	<br>
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <i class="fa fa-money fa-5x"></i>
+                        </div>
+                        <div class="col-xs-9 text-right">
+                            <div class="huge"><%= @budgets_total %></div>
+                            <br>
+                            <div>Orçamentos</div>
+                        </div>
+                    </div>
+                </div>
+                <%= link_to budgets_path do %>
+                    <div class="panel-footer">
+                        <span class="pull-left">View Details</span>
+                        <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                        <div class="clearfix"></div>
+                    </div>
+                <% end %>
+            </div>
+        </div>
+    </div>
+
   </div>
 </div>           
      			

@@ -31,7 +31,8 @@ gem 'money-rails', '~>1.12'
 gem 'city-state'
 gem 'prawn-rails'
 gem 'bootbox-rails', '~>0.4'
-
+gem "chartkick"
+gem 'groupdate'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks

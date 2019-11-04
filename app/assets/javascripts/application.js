@@ -21,6 +21,8 @@
 //= require cocoon
 //= require cocoon_callbacks
 //= require bootbox
+//= require chartkick
+//= require Chart.bundle
 //= require turbolinks
 //= require_tree .
 
