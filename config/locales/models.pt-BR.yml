@@ -8,6 +8,20 @@ pt-BR:
         one: Endereço
       phone:
         one: Telefone
+      ad:
+        one: Anúncio
+        other: Anúncios
+      book:
+        one: Agendamento
+        other: Agendamentos
+      service:
+        one: Serviço
+        other: Serviços
+      budget:
+        one: Orçamento
+        other: Orçamentos
+      budget_service:
+        one: Orçamento/Serviço
     attributes:
       customer:
         name: Nome
@@ -22,5 +36,38 @@ pt-BR:
         email: Email
       phone:
         number: Número de Telefone
+      ad:
+        title: Título
+        description: Descrição
+        contact: Contato Whatsapp
+        city: Cidade
+        state: Estado
+        country: País
+        user: Usuário
+      book:
+        description: Descrição
+        schedule: Data/Horário do compromisso
+        status: Status do compromisso
+        statuses:
+          pending: Pendente
+        customer: Cliente
+        customer_id: Cliente
+      service:
+        name: Nome
+        description: Descrição
+        price: Preço
+      budget:
+        customer: Cliente
+        customer_id: Cliente
+        service: Serviços
+        service_id: Serviços
+        duedate: Vencimento do Orçamento
+        totalprice: Valor Total
+        discount: Desconto
+      budget_service:
+        customer: Clientes
+        service: Serviços
+
+
 
        

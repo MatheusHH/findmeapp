@@ -1,4 +1,4 @@
-<h1>Books</h1>
+<h1><%= @books.model_name.human.pluralize %></h1>
 
 <div class="panel panel-default">
     <div class="panel-heading">
@@ -31,11 +31,11 @@
           <table class="table table-striped table-bordered table-hover">
             <thead>
               <tr>
-                <th>Description</th>
-                <th>Status</th>
-                <th>Schedule</th>
-                <th>Customer</th>
-                <th>Actions</th>
+                <th><%= @books.human_attribute_name("description") %></th>
+                <th><%= @books.human_attribute_name("status") %></th>
+                <th><%= @books.human_attribute_name("schedule") %></th>
+                <th><%= @books.human_attribute_name("customer") %></th>
+                <th><%= t('helpers.submit.actions') %></th>
               </tr>
             </thead>
 
@@ -56,7 +56,7 @@
 
         <br>
 
-        <%= link_to 'New Book', new_book_path, class: "btn btn-primary" %>
+        <%= link_to t('actions.new', model: @books.model_name.human), new_book_path, class: "btn btn-primary" %>
     </div>
 </div>
 
