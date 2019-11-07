@@ -49,7 +49,7 @@
             <% end %>
 
             <div class="links">
-              <%= link_to_add_association 'Adic. Serviço', form, :budget_services, partial: 'budgets/budget_services/budget_services_fields', class: "btn btn-outline btn-primary btn-xs" %>
+              <%= link_to_add_association 'Adic. Serviço', form, :budget_services, partial: 'budgets/budget_services/budget_services_fields', class: "btn btn-primary btn-xs" %>
             </div>
           </div>
           <br>
@@ -81,8 +81,8 @@
           <div class="row">
             <div class="actions">
               <div class="col-lg-6">
-                <%= form.submit 'Save', class: "btn btn-outline btn-success" %>
-                <%= link_to 'Back', budgets_path, class: "btn btn-outline btn-primary" %>
+                <%= form.submit 'Save', class: "btn btn-success" %>
+                <%= link_to 'Back', budgets_path, class: "btn btn-primary" %>
               </div>
             </div>
           </div>
