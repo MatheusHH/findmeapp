@@ -8,6 +8,12 @@ class Book < ApplicationRecord
   enum status: [ :pending, :processing, :done ]
 
   def self.search_by_date(initialdate, finaldate)
-  	where("schedule BETWEEN ? AND ?", initialdate.to_date.beginning_of_day, finaldate.to_date.end_of_day)
+  	if initialdate.present? && finaldate.present?
+  		where("schedule BETWEEN ? AND ?", initialdate.to_date.beginning_of_day, finaldate.to_date.end_of_day)
+  	elsif finaldate.present?
+  		where("schedule <= ?", finaldate.to_date.beginning_of_day)
+  	elsif initialdate.present?
+  		where("schedule >= ?", initialdate.to_date.beginning_of_day)
+  	end
   end
 end

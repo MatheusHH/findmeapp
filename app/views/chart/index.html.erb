@@ -2,7 +2,7 @@
 	<div class="col-lg-6">
 	    <div class="panel panel-primary">
 	        <div class="panel-heading">
-	            <i class="fa fa-bar-chart-o fa-fw"></i> Bar Chart Example
+	            <i class="fa fa-bar-chart-o fa-fw"></i> Orçamentos agrupados por clientes (Em reais)
 	        </div>
 	        <!-- /.panel-heading -->
 	        <div class="panel-body">
@@ -14,11 +14,23 @@
 	<div class="col-lg-6">
 	    <div class="panel panel-green">
 	        <div class="panel-heading">
-	            <i class="fa fa-bar-chart-o fa-fw"></i> Bar Chart Example
+	            <i class="fa fa-bar-chart-o fa-fw"></i> Agendamentos agrupados por status
 	        </div>
 	        <!-- /.panel-heading -->
 	        <div class="panel-body">
 	        	<%= pie_chart @books.group(:status).count, donut: true %>
+	        </div>
+	    </div>
+	</div>
+
+	<div class="col-lg-12">
+	    <div class="panel panel-red">
+	        <div class="panel-heading">
+	            <i class="fa fa-bar-chart-o fa-fw"></i> Total de Orçamentos em Reais (Últimos 12 mêses) 
+	        </div>
+	        <!-- /.panel-heading -->
+	        <div class="panel-body">
+	        	<%= bar_chart @budgets_total.group_by_month(:created_at, format: "%b %Y", last: 12).sum("(totalprice_cents / 100.00)"), prefix: "R$", thousands: ".", decimal: "," %>
 	        </div>
 	    </div>
 	</div>

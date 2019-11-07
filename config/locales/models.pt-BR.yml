@@ -1,0 +1,26 @@
+pt-BR:
+  activerecord:
+    models:
+      customer:
+        one: Cliente
+        other: Clientes
+      address:
+        one: Endereço
+      phone:
+        one: Telefone
+    attributes:
+      customer:
+        name: Nome
+        cpf: CPF
+        user: Usuário
+      address:
+        cep: CEP 
+        street: Nome da Rua
+        neighborhood: Bairro
+        city: Cidade
+        state: Estado
+        email: Email
+      phone:
+        number: Número de Telefone
+
+       

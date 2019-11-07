@@ -1,0 +1,14 @@
+pt-BR:
+ actions:
+   show: Exibir
+   edit: Editando
+   destroy: Excluir
+   new: "Novo"
+   back: Voltar
+ 
+ helpers:
+   submit:
+     create: "Salvar"
+     actions: Ações
+ 
+ confirm: Você tem certeza?
