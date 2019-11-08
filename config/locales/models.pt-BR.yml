@@ -1,6 +1,9 @@
 pt-BR:
   activerecord:
     models:
+      user:
+        one: Usuário
+        other: Usuários
       customer:
         one: Cliente
         other: Clientes
@@ -23,6 +26,10 @@ pt-BR:
       budget_service:
         one: Orçamento/Serviço
     attributes:
+      user:
+        name: Nome
+        email: Email
+        role: Tipo de Usuário
       customer:
         name: Nome
         cpf: CPF

@@ -50,8 +50,12 @@
           <% end %>
 
           <div class="actions">
-            <%= form.submit 'Save', class: "btn btn-outline btn-success" %>
-            <%= link_to 'Back', home_index_path, class: "btn btn-outline btn-primary" %>
+            <%= form.submit t('helpers.submit.create'), class: "btn btn-success" %>
+            <% unless policy(current_user).redirect_form? %>
+              <%= link_to t('actions.back'), home_index_path, class: "btn btn-primary" %>
+            <% else %>
+              <%= link_to t('actions.back'), users_path, class: "btn btn-primary" %>
+            <% end %>
           </div>
         <% end %>
 

@@ -1,0 +1,7 @@
+pt-BR:
+ pundit:
+   default: 'Você não tem autorização para realizar esta ação.'
+   user_policy:
+     edit?: 'Você não pode editar este Usuário'
+     update?: 'Você não pode editar este Usuário'
+     create?: ''

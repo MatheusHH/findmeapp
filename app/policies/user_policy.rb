@@ -13,6 +13,10 @@ class UserPolicy < ApplicationPolicy
   	user.admin?
   end
 
+  def redirect_form?
+    user.admin?
+  end
+
   def new?
   	user.admin?
   end

@@ -5,9 +5,24 @@
 
 #sessao {	
 	padding-top: 10px;
+	min-height: 400px;
 	overflow: hidden;
+	display: flex;
 }
 
+.navbar-inverse a {
+	color:#006FFF !important;
+}
+
+.navbar-inverse a:hover {
+	color:white !important;
+}
+
+
+
+.nav-pills a {
+	color:#006FFF !important;
+}
 
 #search {
 	margin-top: 50px;
@@ -19,14 +34,18 @@
 }
 
 #search-field-city {
-
 	margin-top: 3px;
 	margin-bottom: 3px;
 }
 
-
-.footer {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
+#footer {
+	display: block;
+	width: auto;
+	height: auto;
+	background-color: black;
+	margin-right: auto;
+	margin-left: auto;
 }
+
+
+
