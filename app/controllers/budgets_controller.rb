@@ -36,7 +36,7 @@ class BudgetsController < ApplicationController
     @budget.user = current_user
     respond_to do |format|
       if @budget.save
-        format.html { redirect_to budgets_url, notice: 'Budget was successfully created.' }
+        format.html { redirect_to budgets_url, notice: t('flash.actions.create.notice', model: @budget.model_name.human) }
         format.json { render :show, status: :created, location: @budget }
       else
         format.html { render :new }
@@ -50,7 +50,7 @@ class BudgetsController < ApplicationController
   def update
     respond_to do |format|
       if @budget.update(budget_params)
-        format.html { redirect_to budgets_url, notice: 'Budget was successfully updated.' }
+        format.html { redirect_to budgets_url, notice: t('flash.actions.update.notice', model: @budget.model_name.human) }
         format.json { render :show, status: :ok, location: @budget }
       else
         format.html { render :edit }
@@ -65,7 +65,7 @@ class BudgetsController < ApplicationController
     authorize @budget
     @budget.destroy
     respond_to do |format|
-      format.html { redirect_to budgets_url, notice: 'Budget was successfully destroyed.' }
+      format.html { redirect_to budgets_url, notice: t('flash.actions.destroy.notice') }
       format.json { head :no_content }
     end
   end

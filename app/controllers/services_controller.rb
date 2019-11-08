@@ -35,7 +35,7 @@ class ServicesController < ApplicationController
     @service.user = current_user
     respond_to do |format|
       if @service.save
-        format.html { redirect_to services_url, notice: 'Service was successfully created.' }
+        format.html { redirect_to services_url, notice: t('flash.actions.create.notice', model: @service.model_name.human) }
         format.json { render :show, status: :created, location: @service }
         format.js {}
       else
@@ -51,7 +51,7 @@ class ServicesController < ApplicationController
   def update
     respond_to do |format|
       if @service.update(service_params)
-        format.html { redirect_to services_url, notice: 'Service was successfully updated.' }
+        format.html { redirect_to services_url, notice: t('flash.actions.update.notice', model: @service.model_name.human) }
         format.json { render :show, status: :ok, location: @service }
       else
         format.html { render :edit }
@@ -66,7 +66,7 @@ class ServicesController < ApplicationController
     authorize @service
     @service.destroy
     respond_to do |format|
-      format.html { redirect_to services_url, notice: 'Service was successfully destroyed.' }
+      format.html { redirect_to services_url, notice: t('flash.actions.destroy.notice') }
       format.json { head :no_content }
     end
   end

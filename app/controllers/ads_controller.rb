@@ -36,7 +36,7 @@ class AdsController < ApplicationController
     @ad.user = current_user
     respond_to do |format|
       if @ad.save
-        format.html { redirect_to ads_url, notice: 'Ad was successfully created.' }
+        format.html { redirect_to ads_url, notice: t('flash.actions.create.notice', model: @ad.model_name.human) }
         format.json { render :show, status: :created, location: @ad }
       else
         format.html { render :new }
@@ -50,7 +50,7 @@ class AdsController < ApplicationController
   def update
     respond_to do |format|
       if @ad.update(ad_params)
-        format.html { redirect_to ads_url, notice: 'Ad was successfully updated.' }
+        format.html { redirect_to ads_url, notice: t('flash.actions.update.notice', model: @ad.model_name.human) }
         format.json { render :show, status: :ok, location: @ad }
       else
         format.html { render :edit }
@@ -65,7 +65,7 @@ class AdsController < ApplicationController
     authorize @ad
     @ad.destroy
     respond_to do |format|
-      format.html { redirect_to ads_url, notice: 'Ad was successfully destroyed.' }
+      format.html { redirect_to ads_url, notice: t('flash.actions.destroy.notice') }
       format.json { head :no_content }
     end
   end

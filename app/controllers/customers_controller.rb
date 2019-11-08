@@ -36,7 +36,7 @@ class CustomersController < ApplicationController
     @customer.user = current_user
     respond_to do |format|
       if @customer.save
-        format.html { redirect_to customers_url, notice: 'Customer was successfully created.' }
+        format.html { redirect_to customers_url, notice: t('flash.actions.create.notice', model: @customer.model_name.human) }
         format.json { render :show, status: :created, location: @customer }
         format.js {}
       else
@@ -52,7 +52,7 @@ class CustomersController < ApplicationController
   def update
     respond_to do |format|
       if @customer.update(customer_params)
-        format.html { redirect_to customers_url, notice: 'Customer was successfully updated.' }
+        format.html { redirect_to customers_url, notice: t('flash.actions.update.notice', model: @customer.model_name.human) }
         format.json { render :show, status: :ok, location: @customer }
       else
         format.html { render :edit }
@@ -67,7 +67,7 @@ class CustomersController < ApplicationController
     authorize @customer
     @customer.destroy
     respond_to do |format|
-      format.html { redirect_to customers_url, notice: 'Customer was successfully destroyed.' }
+      format.html { redirect_to customers_url, notice: t('flash.actions.destroy.notice') }
       format.json { head :no_content }
     end
   end
