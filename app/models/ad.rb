@@ -15,7 +15,7 @@ class Ad < ApplicationRecord
 
   def verify_location 
   	if self.latitude.blank? || self.longitude.blank?
-  	  self.errors.add(:ad, "Address is not valid !")
+  	  self.errors.add :base, :verify_location
   	end
   end
 end

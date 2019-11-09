@@ -5,7 +5,8 @@ class Budget < ApplicationRecord
   belongs_to :user
 
   validates :customer_id, :duedate, presence: true
-  validates :totalprice, presence: true, numericality: true
+  validates :totalprice, presence: true, numericality: { greater_than: 0 }
+  validates :discount, numericality: { greater_than_or_equal_to: 0 }
   validates :user_id, presence: true
   validates_associated :budget_services
 

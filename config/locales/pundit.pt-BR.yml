@@ -1,7 +1,27 @@
 pt-BR:
- pundit:
-   default: 'Você não tem autorização para realizar esta ação.'
-   user_policy:
-     edit?: 'Você não pode editar este Usuário'
-     update?: 'Você não pode editar este Usuário'
-     create?: ''
+  pundit:
+    default: 'Você não tem autorização para realizar esta ação.'
+    user_policy:
+      edit?: 'Você não pode editar este Usuário'
+      update?: 'Você não pode editar este Usuário'
+      destroy?: 'Você não pode apagar este Usuário'
+    ad_policy:
+      edit?: 'Você não pode editar este Anúncio'
+      update?: 'Você não pode editar este Anúncio'
+      destroy?: 'Você não pode apagar este Anúncio'
+    book_policy:
+      edit?: 'Você não pode editar este Agendamento'
+      update?: 'Você não pode editar este Agendamento'
+      destroy?: 'Você não pode apagar este Agendamento'
+    budget_policy:
+      edit?: 'Você não pode editar este Orçamento'
+      update?: 'Você não pode editar este Orçamento'
+      destroy?: 'Você não pode apagar este Orçamento'
+    customer_policy:
+      edit?: 'Você não pode editar este Cliente'
+      update?: 'Você não pode editar este Cliente'
+      destroy?: 'Você não pode apagar este Cliente'
+    service_policy:
+      edit?: 'Você não pode editar este Serviço'
+      update?: 'Você não pode editar este Serviço'
+      destroy?: 'Você não pode apagar este Serviço'
