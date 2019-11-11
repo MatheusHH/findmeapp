@@ -9,14 +9,16 @@
         <%= form_with(model: user, local: true, role: 'form') do |form| %>
           <% if user.errors.any? %>
             <div id="error_explanation">
-              <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
-              <h2><%= t('activerecord.errors.not_saved', :model => user.model_name.human, :count => user.errors.count) %></h2>
+              <div class="alert alert-danger" role="alert">
+                <h2><%= pluralize(user.errors.count, "error") %> prohibited this user from being saved:</h2>
+                <h2><%= t('activerecord.errors.not_saved', :model => user.model_name.human, :count => user.errors.count) %></h2>
 
-              <ul>
-              <% user.errors.full_messages.each do |message| %>
-                <li><%= message %></li>
-              <% end %>
-              </ul>
+                <ul>
+                <% user.errors.full_messages.each do |message| %>
+                  <li><%= message %></li>
+                <% end %>
+                </ul>
+              </div>
             </div>
           <% end %>
 
