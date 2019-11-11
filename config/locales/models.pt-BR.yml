@@ -32,7 +32,7 @@ pt-BR:
         role: Tipo de Usuário
       customer:
         name: Nome
-        cpf: CPF
+        cpf: CPF / CNPJ
         user: Usuário
       address:
         cep: CEP 
