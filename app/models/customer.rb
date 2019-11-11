@@ -5,7 +5,10 @@ class Customer < ApplicationRecord
   has_one :address, dependent: :destroy
   has_many :budgets, dependent: :destroy
 
+  validates_with CpfCnpjValidator
+
   validates :name, :cpf, presence: true
+  validates :cpf, length: { in: 11..14 }
   validates :user_id, presence: true
   validates_associated :address
 

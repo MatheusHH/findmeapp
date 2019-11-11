@@ -57,6 +57,8 @@ GEM
     bootstrap_sb_admin_base_v2 (0.3.6)
       font-awesome-rails
       jquery-rails
+    brazilian_documents (0.1.4)
+      digit_checksum (~> 0.2.3)
     builder (3.2.3)
     byebug (11.0.1)
     capybara (3.29.0)
@@ -93,6 +95,7 @@ GEM
       railties (>= 4.1.0)
       responders
       warden (~> 1.2.3)
+    digit_checksum (0.2.3)
     erubi (1.8.0)
     execjs (2.7.0)
     ffi (1.11.1)
@@ -279,6 +282,7 @@ DEPENDENCIES
   bootsnap (>= 1.1.0)
   bootstrap3-datetimepicker-rails (~> 4.17.47)
   bootstrap_sb_admin_base_v2
+  brazilian_documents (~> 0.1.4)
   byebug
   capybara (>= 2.15)
   chartkick

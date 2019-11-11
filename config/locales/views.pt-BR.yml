@@ -34,7 +34,9 @@ pt-BR:
       present: deve ficar em branco
       required: é obrigatório(a)
       taken: já está em uso
-      verify_location: Endereço não é válido, impossível gerar coordenadas! 
+      verify_location: Endereço não é válido, impossível gerar coordenadas!
+      invalid_cpf: CPF digitado é inválido!
+      invalid_cnpj: CNPJ digitado é inválido! 
       too_long:
         one: 'é muito longo (máximo: 1 caracter)'
         other: 'é muito longo (máximo: %{count} caracteres)'
