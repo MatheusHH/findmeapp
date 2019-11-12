@@ -33,6 +33,7 @@ class UsersController < ApplicationController
       if @user.save
         format.html { redirect_to users_url, notice: t('flash.actions.create.notice', model: @user.model_name.human) }
         format.json { render :show, status: :created, location: @user }
+        UserNotifierMailer.send_signup_email(@user).deliver
       else
         format.html { render :new }
         format.json { render json: @user.errors, status: :unprocessable_entity }

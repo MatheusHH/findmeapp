@@ -31,7 +31,7 @@ Rails.application.configure do
   config.active_storage.service = :local
 
   # Don't care if the mailer can't send.
-  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.raise_delivery_errors = true
 
   config.action_mailer.perform_caching = false
 
@@ -45,7 +45,19 @@ Rails.application.configure do
   config.active_record.verbose_query_logs = true
   #Devise Setup mail gem
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
-  config.action_mailer.smtp_settings = { address: "localhost", port: 1025 }
+  #config.action_mailer.smtp_settings = { address: "localhost", port: 1025 } descomentar e apagar os smtp
+
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.smtp_settings = {
+    :user_name => 'MatheusHenrique',
+    :password => 'motorazrmaxx2020',
+    :domain => 'sendgrid.com',
+    :address => 'smtp.sendgrid.net',
+    :port => 587,
+    :authentication => :plain,
+    :enable_starttls_auto => true
+  }
 
   # Debug mode disables concatenation and preprocessing of assets.
   # This option may cause significant delays in view rendering with a large
