@@ -56,6 +56,21 @@ Rails.application.configure do
   # Prepend all log lines with the following tags.
   config.log_tags = [ :request_id ]
 
+  #Configure smtp emails
+  config.action_mailer.default_url_options = { host: 'herokuapp.com' }
+
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.smtp_settings = {
+    :user_name => 'MatheusHenrique',
+    :password => 'motorazrmaxx2020',
+    :domain => 'herokuapp.com',
+    :address => 'smtp.sendgrid.net',
+    :port => 587,
+    :authentication => :plain,
+    :enable_starttls_auto => true
+  }
+
   # Use a different cache store in production.
   # config.cache_store = :mem_cache_store
 
