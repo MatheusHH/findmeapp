@@ -17,4 +17,10 @@ class Book < ApplicationRecord
   		where("schedule >= ?", initialdate.to_date.beginning_of_day)
   	end
   end
+
+  def self.status_attributes_for_select
+    statuses.map do |status, s|
+      [I18n.t("activerecord.attributes.#{model_name.i18n_key}.statuses.#{status}"), status]
+    end
+  end
 end

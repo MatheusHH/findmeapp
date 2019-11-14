@@ -3,7 +3,7 @@ class ChartController < ApplicationController
 
   def index
   	@budgets = policy_scope(Budget).joins(:customer).references(:customers)
-  	@books = policy_scope(Book).all
+  	@services = policy_scope(Service).joins(:budget_services, :budgets).references(:budget_services, :budgets)
   	@budgets_total = policy_scope(Budget).all
   end
 end

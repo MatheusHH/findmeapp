@@ -6,7 +6,7 @@
 	        </div>
 	        <!-- /.panel-heading -->
 	        <div class="panel-body">
-	            <%= pie_chart @budgets.group("customers.name").sum("(totalprice_cents / 100.00)"), prefix: "R$", thousands: ".", decimal: ",", donut: true %>
+	            <%= pie_chart @budgets.group("customers.name").sum("(totalprice_cents / 100.00)"), prefix: "R$", thousands: ".", decimal: ",", donut: true, round: 2,  zeros: true %>
 	        </div>
 	    </div>
 	</div>
@@ -14,11 +14,11 @@
 	<div class="col-lg-6">
 	    <div class="panel panel-green">
 	        <div class="panel-heading">
-	            <i class="fa fa-bar-chart-o fa-fw"></i> Agendamentos agrupados por status
+	            <i class="fa fa-bar-chart-o fa-fw"></i> Serviços mais realizados
 	        </div>
 	        <!-- /.panel-heading -->
 	        <div class="panel-body">
-	        	<%= pie_chart @books.group(:status).count, donut: true %>
+	        	<%= pie_chart @services.group("services.name").count, donut: true %>
 	        </div>
 	    </div>
 	</div>
