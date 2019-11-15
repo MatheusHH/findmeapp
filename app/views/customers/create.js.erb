@@ -1,6 +1,6 @@
 $(function () {
 	<% if @customer.errors.any? %>
-	  bootbox.alert("ERROR(S): <%= j @customer.errors.full_messages.join('; ') %>")
+	  bootbox.alert("ERROR(S): <ul><li><%= j @customer.errors.full_messages.join('; ') %></li></ul>")
 	<% else %>
 	  bootbox.alert("Cliente criado");
 	  $('#newCustomerModal').modal('hide');

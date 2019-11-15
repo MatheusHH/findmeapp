@@ -111,6 +111,7 @@ pt-BR:
     edit: Editando %{model}
     destroy: Excluir
     new: Novo %{model}
+    new(a): Nova %{model}
     back: Voltar
  
   helpers:

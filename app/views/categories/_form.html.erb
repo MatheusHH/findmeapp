@@ -1,0 +1,51 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+      <!-- Title if you wanna do it--> 
+  </div>
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-lg-6">
+
+        <%= form_with(model: category, local: true, html: { role: 'form' }) do |form| %>
+          <% if category.errors.any? %>
+            <div id="error_explanation">
+              <div class="alert alert-danger" role="alert">
+                <h2><%= t('activerecord.errors.not_saved', :model => category.model_name.human, :count => category.errors.count) %></h2>
+
+                <ul>
+                <% category.errors.full_messages.each do |message| %>
+                  <li><%= message %></li>
+                <% end %>
+                </ul>
+              </div>
+            </div>
+          <% end %>
+
+          <div class="row">
+            <div class="form-group">
+              <div class="col-lg-6">
+                <%= form.label :name %>
+                <%= form.text_field :name, class: "form-control" %>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="row">
+            <div class="actions">
+              <div class="col-lg-6">
+                <%= form.submit t('helpers.submit.create'), class: "btn btn-success" %>
+                <%= link_to t('actions.back'), categories_path, class: "btn btn-primary" %>
+              </div>
+            </div>
+          </div>
+
+        <% end %>
+      </div>
+        <!-- /.col-lg-6 (nested) -->
+    </div>
+    <!-- /.row (nested) -->
+  </div>
+  <!-- /.panel-body -->
+</div>
+

@@ -11,4 +11,5 @@ class User < ApplicationRecord
   has_many :books, dependent: :destroy
   has_many :services, dependent: :destroy
   has_many :budgets, dependent: :destroy
+  has_many :categories, dependent: :destroy
 end

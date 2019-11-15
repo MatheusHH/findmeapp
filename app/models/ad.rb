@@ -1,5 +1,6 @@
 class Ad < ApplicationRecord
   belongs_to :user
+  belongs_to :category
 
   validates :title, :description, :contact, presence: true
   validates :user_id, presence: true

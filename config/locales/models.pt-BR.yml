@@ -4,6 +4,9 @@ pt-BR:
       user:
         one: Usuário
         other: Usuários
+      category:
+        one: Categoria
+        other: Categorias
       customer:
         one: Cliente
         other: Clientes
@@ -30,6 +33,9 @@ pt-BR:
         name: Nome
         email: Email
         role: Tipo de Usuário
+      category:
+        name: Nome
+        user: Usuário
       customer:
         name: Nome
         cpf: CPF / CNPJ
