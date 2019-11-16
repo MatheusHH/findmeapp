@@ -32,7 +32,7 @@
           <div class="row">
             <div class="form-group">
               <div class="col-lg-6">
-                <%= form.label :ad %>
+                <%= form.label :category %>
                 <%= form.select(:category_id, Category.all.collect {|p| [ p.name, p.id ] }, {prompt: "Selecione a categoria"}, { class: "form-control" })%>
               </div>
             </div>

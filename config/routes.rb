@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   resources :customers, :except => [:show]
   resources :showad, only: [:show]
   resources :ads, :except => [:show]
+  resources :ad_by_category, only: [:show]
   get 'welcome/index'
   get 'welcome/:id', to: 'welcome#show'
 

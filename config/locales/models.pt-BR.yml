@@ -51,6 +51,8 @@ pt-BR:
         number: Número de Telefone
       ad:
         title: Título
+        category: Categoria
+        category_id: Categoria
         description: Descrição
         contact: Contato Whatsapp
         city: Cidade

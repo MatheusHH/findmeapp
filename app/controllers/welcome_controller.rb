@@ -1,6 +1,7 @@
 class WelcomeController < ApplicationController
   layout 'welcome'
-  
+  before_action :load_category, only: [:index]
+  after_action :load_coords_to_session, only: [:index]
   def index
   	@latitude = params[:latitude].to_f
   	@longitude = params[:longitude].to_f
@@ -14,12 +15,13 @@ class WelcomeController < ApplicationController
   	@ads = @ads.near([@latitude, @longitude], 50).page(params[:page]).per(4) if params[:latitude].to_f != 0 && params[:longitude].to_f != 0
   end
 
+  private
+    def load_category
+      @categories = Category.all
+    end
 
-  #private
-
-  #	def filter_by_cities
-  #		@ads = @ads.select do |a|
-  #			a.near(params[:city])
-  #		end
-  #	end
+    def load_coords_to_session
+      session[:latitude] = @latitude
+      session[:longitude] = @longitude
+    end
 end
