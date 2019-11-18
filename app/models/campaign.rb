@@ -11,7 +11,7 @@ class Campaign < ApplicationRecord
 	private
 
 	def schedule_mail
-	  @customers = Customer.where(id: self.user_id)
+	  @customers = Customer.where(user_id: self.user_id)
 	  @customers.each do |customer|
 	  	CampaignCustomer.create(campaign: self, customer: customer)
 	  	CampaignJob.perform_now(customer, self.title, self.body)
