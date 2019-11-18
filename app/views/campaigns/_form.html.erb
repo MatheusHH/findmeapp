@@ -1,0 +1,57 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+      <!-- Title if you wanna do it-->
+  </div>
+  <div class="panel-body">
+    <div class="row">
+      <div class="col-lg-6">
+        <%= form_with(model: campaign, local: true, html: { role: 'form' }) do |form| %>
+          <% if campaign.errors.any? %>
+            <div id="error_explanation">
+              <div class="alert alert-danger" role="alert">
+                <h2><%= t('activerecord.errors.not_saved', :model => campaign.model_name.human, :count => campaign.errors.count) %></h2>
+
+                <ul>
+                <% campaign.errors.full_messages.each do |message| %>
+                  <li><%= message %></li>
+                <% end %>
+                </ul>
+              </div>
+            </div>
+          <% end %>
+
+          <div class="row">
+            <div class="form-group">
+              <div class="col-lg-7">
+                <%= form.label :title %>
+                <%= form.text_field :title, class: "form-control" %>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="form-group">
+              <div class="col-lg-10">
+                <%= form.label :body %>
+                <%= form.text_area :body, class: "form-control", rows: 10 %>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="actions">
+              <div class="col-lg-6">
+                <%= form.submit t('helpers.submit.create'), class: "btn btn-success" %>
+                <%= link_to t('actions.back'), campaigns_path, class: "btn btn-primary" %>
+              </div>
+            </div>
+          </div>
+
+        <% end %>
+      </div>
+        <!-- /.col-lg-6 (nested) -->
+    </div>
+    <!-- /.row (nested) -->
+  </div>
+  <!-- /.panel-body -->
+</div>

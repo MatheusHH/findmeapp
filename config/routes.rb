@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :campaigns
   get 'chart/index'
   resources :budgets
   resources :categories

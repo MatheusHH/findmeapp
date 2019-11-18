@@ -10,6 +10,9 @@ pt-BR:
       customer:
         one: Cliente
         other: Clientes
+      campaign: 
+        one: Campanha
+        other: Campanhas
       address:
         one: Endereço
       phone:
@@ -33,6 +36,9 @@ pt-BR:
         name: Nome
         email: Email
         role: Tipo de Usuário
+      campaign: 
+        title: Assunto
+        body: Email
       category:
         name: Nome
         user: Usuário

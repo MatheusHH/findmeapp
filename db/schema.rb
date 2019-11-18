@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_15_205037) do
+ActiveRecord::Schema.define(version: 2019_11_17_224708) do
 
   create_table "addresses", force: :cascade do |t|
     t.string "cep"
@@ -76,6 +76,24 @@ ActiveRecord::Schema.define(version: 2019_11_15_205037) do
     t.integer "user_id"
     t.index ["customer_id"], name: "index_budgets_on_customer_id"
     t.index ["user_id"], name: "index_budgets_on_user_id"
+  end
+
+  create_table "campaign_customers", force: :cascade do |t|
+    t.integer "campaign_id"
+    t.integer "customer_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["campaign_id"], name: "index_campaign_customers_on_campaign_id"
+    t.index ["customer_id"], name: "index_campaign_customers_on_customer_id"
+  end
+
+  create_table "campaigns", force: :cascade do |t|
+    t.string "title"
+    t.text "body"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "user_id"
+    t.index ["user_id"], name: "index_campaigns_on_user_id"
   end
 
   create_table "categories", force: :cascade do |t|

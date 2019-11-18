@@ -12,4 +12,5 @@ class User < ApplicationRecord
   has_many :services, dependent: :destroy
   has_many :budgets, dependent: :destroy
   has_many :categories, dependent: :destroy
+  has_many :campaigns, dependent: :destroy
 end
