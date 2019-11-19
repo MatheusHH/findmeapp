@@ -78,22 +78,29 @@
     <div class="container">
       <div class="row">
         <% @categories.each do |category| %>
-          <div class="col-md-3">
-            <div class="panel panel-primary">
-              <div class="panel-heading">
-                <%= category.name %>
+          <div class="col-lg-3 col-md-6">
+              <div class="panel panel-primary">
+                  <div class="panel-heading">
+                    <br>
+                      <div class="row">
+                          <div class="col-xs-3">
+                              <i class="fa fa-list-alt fa-5x"></i>
+                          </div>
+                          <div class="col-xs-9 text-right">
+                              <div class="huge"> </div>
+                              <br>
+                              <div><%= category.name %></div>
+                          </div>
+                      </div>
+                  </div>
+                  <%= link_to ad_by_category_path(category), id: "link" do %>
+                      <div class="panel-footer" id="primary">
+                          <span class="pull-left">Ver anúncios</span>
+                            <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                            <div class="clearfix"></div>
+                      </div>
+                  <% end %>
               </div>
-              <div class="panel-body">
-                
-              </div>
-              <div class="panel-footer">
-                <%= link_to ad_by_category_path(category), id: "link" do %>
-                  <span class="pull-left">Ver anúncios</span>
-                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
-                    <div class="clearfix"></div>
-                <% end %> 
-              </div>
-            </div> 
           </div>
         <% end %>
       </div>

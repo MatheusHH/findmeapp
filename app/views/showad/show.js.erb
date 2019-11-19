@@ -1,6 +1,8 @@
-$('h4.modal-title').text('<%= @ad.title %>')
-$('#ad_description').text('<%= @ad.description %>');
-$('#ad_street').text('<%= @ad.street %>');
-$('#ad_city').text('<%= @ad.city %>');
-$('#ad_state').text('<%= @ad.state %>');
+$('h4.modal-title').text(' <%= @ad.title %>')
+$('#ad_description').text('Descrição: <%= @ad.description %>');
+$('#ad_contact').text('Contato: <%= @ad.contact %>');
+$('#ad_email').text('Email: <%= @ad.user.email %>');
+$('#ad_street').text('Rua: <%= @ad.street %>');
+$('#ad_city').text('Cidade: <%= @ad.city %>');
+$('#ad_state').text('Estado: <%= @ad.state %>');
 $('#adModal').modal();
