@@ -37,6 +37,7 @@ pt-BR:
       verify_location: Endereço não é válido, impossível gerar coordenadas!
       invalid_cpf: CPF digitado é inválido!
       invalid_cnpj: CNPJ digitado é inválido! 
+      invalid_schedule: Horário de programação já está sendo utilizado !
       too_long:
         one: 'é muito longo (máximo: 1 caracter)'
         other: 'é muito longo (máximo: %{count} caracteres)'
