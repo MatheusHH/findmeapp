@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
-  resources :campaigns
+  resources :campaigns, :except => [:show]
   get 'chart/index'
   resources :budgets
-  resources :categories
+  resources :categories, :except => [:show] 
   resources :services, :except => [:show]
   resources :books, :except => [:show]
   resources :customers, :except => [:show]

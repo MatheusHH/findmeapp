@@ -7,7 +7,7 @@
 <% end %>
 
 <%- if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations' %>
-  <%= link_to new_password_path(resource_name) do %>
+  <%= link_to new_password_path(resource_name), class: "btn-link" do %>
   	<span class="fa fa-lock"> Forgot your password?</span>
   <% end %>
   <br />

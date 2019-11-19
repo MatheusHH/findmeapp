@@ -1,5 +1,6 @@
 class WelcomeController < ApplicationController
   layout 'welcome'
+  
   before_action :load_category, only: [:index]
   after_action :load_coords_to_session, only: [:index]
   def index

@@ -24,7 +24,7 @@
               <div class="col-lg-8">
                 <%= form.label :customer_id %>
                 <div class="input-group">
-                  <span class="input-group-addon"><%= link_to new_customer_path, remote: true do %> <i class="fa fa-plus"></i></span><% end %>
+                  <span class="input-group-addon"><%= link_to new_customer_path, class: "btn-link", remote: true do %> <i class="fa fa-plus"></i></span><% end %>
                   <%= form.select(:customer_id, Customer.where(user_id: current_user.id ).collect {|p| [ p.name, p.id ] }, {prompt: "Selecione o cliente"}, { class: "form-control" })%>
                 </div>
               </div>

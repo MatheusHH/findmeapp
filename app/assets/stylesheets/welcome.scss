@@ -10,13 +10,19 @@
 	display: flex;
 }
 
+.btn-link a:hover {
+	color:white !important;
+}
+.btn-success {
+	color: white !important;
+}
+
 //body {
-//  background: image-url("background.jpg") no-repeat center center fixed;
+//  background: image-url("background4.jpeg") no-repeat center center fixed;
 //  -webkit-background-size: cover;
 //  -moz-background-size: cover;
 //  -o-background-size: cover;
-//  background-size: cover;
-//    
+//  background-size: cover;    
 //}
 
 .navbar-inverse a {
