@@ -71,7 +71,7 @@ pt-BR:
         status: Status do compromisso
         statuses:
           pending: Pendente
-          processing:  Processando
+          processing:  Em andamento
           done: Fechado
         customer: Cliente
         customer_id: Cliente

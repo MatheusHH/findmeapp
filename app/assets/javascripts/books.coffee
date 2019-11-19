@@ -9,15 +9,15 @@
 $(document).on 'turbolinks:load', ->
   $('#datetimepicker').datetimepicker
     locale: 'pt-br'
-    format: 'DD-MM-YYYY hh:mm'
+    format: 'DD-MM-YYYY HH:mm'
 
   $('#initialdate').datepicker
     locale: 'pt-br'
-    format: 'YYYY-MM-DD hh:mm'
+    format: 'YYYY-MM-DD HH:mm'
 
   $('#finaldate').datepicker
     locale: 'pt-br'
-    format: 'YYYY-MM-DD hh:mm'
+    format: 'YYYY-MM-DD HH:mm'
   return
   
 
