@@ -4,9 +4,9 @@ class Campaign < ApplicationRecord
 	has_many :campaign_customer, dependent: :destroy
 	has_many :customers, through: :campaign_customer
 
+	validates :title, :body, presence: true
+
 	after_save :schedule_mail
-
-
 
 	private
 
