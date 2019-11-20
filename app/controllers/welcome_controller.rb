@@ -13,7 +13,7 @@ class WelcomeController < ApplicationController
   	end
   	@ads = @q.result.page(params[:page]).per(4)
   	@ads = @ads.near(params[:city]) if params[:city]
-  	@ads = @ads.near([@latitude, @longitude], 50).page(params[:page]).per(4) if params[:latitude].to_f != 0 && params[:longitude].to_f != 0
+  	@ads = @ads.near([@latitude, @longitude], 50).page(params[:page]).per(3) if params[:latitude].to_f != 0 && params[:longitude].to_f != 0
   end
 
   private
