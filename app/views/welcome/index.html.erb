@@ -45,35 +45,31 @@
 
 <section id="sessao">
   <% if @ads.length > 0 %> 
-  	<div class="container">
-  	  <div class="row">
-  	    <% @ads.each do |ad| %>
-  	      <div class="col-md-3">
-  	        <div class="panel panel-primary">
-  	          <div class="panel-heading">
-  	            <%= ad.title %>
-  	          </div>
-  	          <div class="panel-body">
-  	            
-  	          </div>
+    <div class="container">
+      <div class="row">
+        <% @ads.each do |ad| %>
+          <div class="col-md-4">
+            <div class="panel panel-primary">
+              <div class="panel-heading">
+                <%= ad.title %>
+              </div>
+              <div class="panel-body">
+                <%= image_tag ad.picture.variant(resize: "400x200"), class: "img-responsive" if ad.picture.attached? %>
+              </div>
 
-  	          <ul class="list-group">
-  	            <li class="list-group-item"><%= ad.street %></li>
-  	            <li class="list-group-item"><%= ad.city %></li>
-  	            <li class="list-group-item"><%= ad.state %></li>
-               
-                <li class="list-group-item"><%= link_to '<i class="fa fa-whatsapp</i> Entre em contato'.html_safe, "https://wa.me/#{ad.contact}", target: "_blank", class: "btn btn-success btn-xs" %> </li>
+              <ul class="list-group">
+              <li class="list-group-item"><%= link_to '<i class="fa fa-whatsapp"></i> Entre em contato'.html_safe, "https://wa.me/#{ad.contact}", target: "_blank", class: "btn btn-success btn-xs" %> </li>
+              <% if @latitude != 0 && @longitude != 0 %>
+                  <li class="list-group-item"><%= distance(@latitude, @longitude, ad.latitude, ad.longitude) %><b> KM de você</b></li>
+                <% end %>
 
-  	            <% if @latitude != 0 && @longitude != 0 %>
-  	              <li class="list-group-item"><%= distance(@latitude, @longitude, ad.latitude, ad.longitude) %><b> KM de você</b></li>
-  	            <% end %>
-                <li class="list-group-item"><%= link_to showad_path(ad), class: "btn btn-primary btn-xs", remote: true do %> Detalhes <% end %> </li>
-  	          </ul>
-  	        </div> 
-  	      </div>
-  	    <% end %>
-  	  </div>
-  	</div>
+              <li class="list-group-item"><%= link_to showad_path(ad), class: "btn btn-primary btn-xs", remote: true do %> Detalhes <% end %> </li>
+              </ul>
+            </div> 
+          </div>
+        <% end %>
+      </div>
+    </div>
   <% else %>  
     <div class="container">
       <div class="row">

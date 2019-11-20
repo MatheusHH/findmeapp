@@ -34,6 +34,7 @@ class AdsController < ApplicationController
   def create
     @ad = Ad.new(ad_params)
     @ad.user = current_user
+    @ad.file.attach(params[:ad][:picture])
     respond_to do |format|
       if @ad.save
         format.html { redirect_to ads_url, notice: t('flash.actions.create.notice', model: @ad.model_name.human) }
@@ -78,6 +79,6 @@ class AdsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def ad_params
-      params.require(:ad).permit(:title, :category_id, :street, :city, :state, :country, :contact, :latitude, :longitude, :description, :user_id)
+      params.require(:ad).permit(:title, :picture, :category_id, :street, :city, :state, :country, :contact, :latitude, :longitude, :description, :user_id)
     end
 end

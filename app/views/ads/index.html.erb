@@ -27,6 +27,7 @@
               <th><%= @ads.human_attribute_name("title") %></th>
               <th><%= @ads.human_attribute_name("description") %></th>
               <th><%= @ads.human_attribute_name("user") %></th>
+              <th><%= @ads.human_attribute_name("picture") %></th>
               <th><%= t('helpers.submit.actions') %></th>
             </tr>
           </thead>
@@ -37,6 +38,7 @@
                 <td><%= ad.title %></td>
                 <td><%= ad.description %></td>
                 <td><%= ad.user.name %></td>
+                <td><%= image_tag ad.picture.variant(resize: "100x100") if ad.picture.attached? %></td>
 
                 <% if policy(current_user).edit? %>
                   <td class="col-md-2"><%= link_to edit_ad_path(ad), class: "btn btn-info btn-circle" do %> <i class="fa fa-edit"></i><% end %>

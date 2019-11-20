@@ -34,7 +34,8 @@ gem 'bootbox-rails', '~>0.4'
 gem "chartkick"
 gem 'groupdate'
 gem 'brazilian_documents', '~> 0.1.4'
-
+gem 'mini_magick'
+gem 'image_processing', '~> 1.2'
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
 # Turbolinks makes navigating your web application faster. Read more: https://github.com/turbolinks/turbolinks
