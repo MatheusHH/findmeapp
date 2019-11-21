@@ -30,7 +30,7 @@ prawn_document(filename: "budget.pdf") do |pdf|
   pdf.move_down 40
   
 
-  pdf.text "Serviços solilitados", :size => 20, :style => :bold, :align => :center
+  pdf.text "Serviços Solicitados", :size => 15, :style => :bold, :align => :center
   pdf.move_down 20
 
   header = ["Serviço", "Descrição", "Valor"]
@@ -51,10 +51,21 @@ prawn_document(filename: "budget.pdf") do |pdf|
   total = 0
   @budget.budget_services.each do |budget|
   	total += budget.service.price.to_f
-  end
+  end  
 
-  pdf.text "Total dos serviços: #{humanized_money_with_symbol(total)}", :align => :center, :size => 15
-  pdf.move_down 50
+  if @budget.discount > 0
+    pdf.text "Total: #{humanized_money_with_symbol(total)}", :align => :center, :size => 15
+    pdf.move_down 10
+
+    pdf.text "Descontos: #{humanized_money_with_symbol(@budget.discount)}", :align => :center, :size => 15
+    pdf.move_down 10
+
+    pdf.text "Total com descontos: #{humanized_money_with_symbol(@budget.totalprice)}", :align => :center, :size => 15
+    pdf.move_down 50
+  else
+    pdf.text "Total dos serviços: #{humanized_money_with_symbol(@budget.totalprice)}", :align => :center, :size => 15
+    pdf.move_down 50
+  end
   
   pdf.text "-----------------------------------------------------", :align => :center
 
