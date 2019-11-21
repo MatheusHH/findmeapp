@@ -23,6 +23,13 @@ class Budget < ApplicationRecord
     	self.budget_services.each do |budget_service|
     	  total += budget_service.service.price
     	end
+
+      if self.discount <= total
+        total -= self.discount
+      else
+        total = 0
+      end
+
     	self.totalprice = total
     end
 end
