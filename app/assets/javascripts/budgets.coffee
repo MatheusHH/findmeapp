@@ -15,6 +15,9 @@ $(document).on 'turbolinks:load', ->
 $(document).on 'turbolinks:load', ->
   $('#select_menu').multiselect({
   	nonSelectedText: 'Selecione os Serviços '
+  	enableCaseInsensitiveFiltering: true
+  	filterPlaceholder: 'Serviços'
+  	
   })
   
 
