@@ -3,9 +3,10 @@
     <%= f.label :service %>
     <div class="input-group">
     	<span class="input-group-addon"><%= link_to new_service_path, class: "btn-link", remote: true do %> <i class="fa fa-plus"></i></span><% end %>
-    	<%= f.select(:service_id, Service.where(user_id: current_user.id ).collect {|p| [ p.name, p.id ] }, {prompt: "Selecione o serviço"}, { class: "form-control", style: "width:250px;"  })%>
+    	<%= f.select(:service_id, Service.where(user_id: current_user.id ).collect {|p| [ p.name, p.id ] }, {prompt: "Selecione o serviço"}, { class: "form-control", style: "width:300px;"  })%>
+
+    	<%= link_to_remove_association "X", f, class: "btn btn-danger btn-circle pull-right" %>
     </div>
   </div>
-  <%= link_to_remove_association "Apagar", f, class: "btn btn-danger btn-xs pull-right" %>
 </div>
 
