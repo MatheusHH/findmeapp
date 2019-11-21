@@ -13,4 +13,13 @@ class User < ApplicationRecord
   has_many :budgets, dependent: :destroy
   has_many :categories, dependent: :destroy
   has_many :campaigns, dependent: :destroy
+
+  after_create :send_welcome_email
+
+
+  private
+
+  def send_welcome_email
+    UserNotifierMailer.send_signup_email(self).deliver
+  end 
 end
