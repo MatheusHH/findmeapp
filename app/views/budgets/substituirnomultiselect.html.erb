@@ -1,0 +1,10 @@
+<div id="budgetservices">
+            <%= form.fields_for :budget_services do |budget_service| %>
+              <%= render 'budgets/budget_services/budget_services_fields', :f => budget_service %>
+            <% end %>
+
+            <div class="links">
+              <%= link_to_add_association '+ Serviço', form, :budget_services, partial: 'budgets/budget_services/budget_services_fields', class: "btn btn-primary btn-xs" %>
+            </div>
+          </div>
+          <br>

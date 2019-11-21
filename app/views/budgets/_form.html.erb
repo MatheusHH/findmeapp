@@ -44,16 +44,17 @@
             </div>
           </div>
 
-          <div id="budgetservices">
-            <%= form.fields_for :budget_services do |budget_service| %>
-              <%= render 'budgets/budget_services/budget_services_fields', :f => budget_service %>
-            <% end %>
-
-            <div class="links">
-              <%= link_to_add_association '+ Serviço', form, :budget_services, partial: 'budgets/budget_services/budget_services_fields', class: "btn btn-primary btn-xs" %>
+          <div class="row">
+            <div class="form-group">
+              <div class="col-lg-6">
+                <%= form.label :service %>
+                <div class="input-group">
+                  <span class="input-group-addon"><%= link_to new_service_path, class: "btn-link", remote: true do %> <i class="fa fa-plus"></i></span><% end %>
+                  <%= form.select(:service_ids, Service.where(user_id: current_user.id ).collect {|p| [ p.name, p.id ] }, {}, { class: "form-control", id: "select_menu", multiple: true  })%>
+                </div>
+              </div>
             </div>
           </div>
-          <br>
           
           <div class="row">
             <div class="form-group">
