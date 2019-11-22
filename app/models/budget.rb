@@ -1,8 +1,9 @@
 class Budget < ApplicationRecord
   belongs_to :customer
+  belongs_to :user, counter_cache: :counter_of_budgets
+  
   has_many :budget_services, dependent: :destroy
   has_many :services, through: :budget_services
-  belongs_to :user
 
   validates :customer_id, :duedate, presence: true
   validates :totalprice, presence: true, numericality: { greater_than_or_equal_to: 0 }

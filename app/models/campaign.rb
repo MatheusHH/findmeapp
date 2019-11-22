@@ -1,5 +1,5 @@
 class Campaign < ApplicationRecord
-	belongs_to :user
+	belongs_to :user, counter_cache: :counter_of_campaigns
 
 	has_many :campaign_customer, dependent: :destroy
 	has_many :customers, through: :campaign_customer

@@ -1,5 +1,6 @@
 class Customer < ApplicationRecord
-  belongs_to :user
+  belongs_to :user, counter_cache: true
+
   has_many :phones, dependent: :destroy
   has_many :books, dependent: :destroy
   has_one :address, dependent: :destroy

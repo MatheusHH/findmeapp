@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_11_20_195241) do
+ActiveRecord::Schema.define(version: 2019_11_22_194542) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -163,6 +163,12 @@ ActiveRecord::Schema.define(version: 2019_11_20_195241) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
+    t.integer "customers_count", default: 0
+    t.integer "counter_of_books", default: 0
+    t.integer "counter_of_services", default: 0
+    t.integer "counter_of_ads", default: 0
+    t.integer "counter_of_budgets", default: 0
+    t.integer "counter_of_campaigns", default: 0
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end

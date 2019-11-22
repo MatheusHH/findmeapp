@@ -1,5 +1,5 @@
 class Book < ApplicationRecord
-  belongs_to :user
+  belongs_to :user, counter_cache: :counter_of_books
   belongs_to :customer
 
   validates_with ScheduleValidator

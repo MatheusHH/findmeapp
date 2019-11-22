@@ -2,9 +2,11 @@ class HomeController < ApplicationController
   before_action :authenticate_user!
   
   def index
-  	@books_total = policy_scope(Book).all.count
-  	@services_total = policy_scope(Service).all.count
-  	@ads_total = policy_scope(Ad).all.count
-  	@budgets_total = policy_scope(Budget).all.count
+  	@books_total = current_user.counter_of_books
+  	@services_total = current_user.counter_of_services
+  	@ads_total = current_user.counter_of_ads
+  	@budgets_total = current_user.counter_of_budgets
+  	@customers = current_user.customers_count
+  	@campaigns = current_user.counter_of_campaigns
   end
 end

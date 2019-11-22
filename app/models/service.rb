@@ -1,5 +1,6 @@
 class Service < ApplicationRecord
-	belongs_to :user
+	belongs_to :user, counter_cache: :counter_of_services
+
 	has_many :budget_services, dependent: :restrict_with_exception
 	has_many :budgets, through: :budget_services
 

@@ -2,7 +2,7 @@ class Ad < ApplicationRecord
 
   has_one_attached :picture
 
-  belongs_to :user
+  belongs_to :user, counter_cache: :counter_of_ads
   belongs_to :category
 
   validates :title, :description, :contact, presence: true
