@@ -20,6 +20,6 @@ class User < ApplicationRecord
   private
 
   def send_welcome_email
-    UserNotifierMailer.send_signup_email(self).deliver
+    WelcomeUserJob.perform_now(self)
   end 
 end
