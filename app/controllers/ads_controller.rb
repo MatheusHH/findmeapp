@@ -34,7 +34,7 @@ class AdsController < ApplicationController
   def create
     @ad = Ad.new(ad_params)
     @ad.user = current_user
-    @ad.file.attach(params[:ad][:picture])
+    @ad.picture.attach(params[:ad][:picture])
     respond_to do |format|
       if @ad.save
         format.html { redirect_to ads_url, notice: t('flash.actions.create.notice', model: @ad.model_name.human) }

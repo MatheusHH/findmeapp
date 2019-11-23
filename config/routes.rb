@@ -10,7 +10,7 @@ Rails.application.routes.draw do
   resources :ads, :except => [:show]
   resources :ad_by_category, only: [:show]
   get 'welcome/index'
-  get 'welcome/:id', to: 'welcome#show'
+  
 
   devise_for :users
   resources :users, :except => [:show]

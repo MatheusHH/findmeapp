@@ -21,6 +21,7 @@
 		          </div>
 
 		          <ul class="list-group">
+		          	<li class="list-group-item"><%= session[:latitude] %> <%= session[:longitude] %> </li>
 			        <li class="list-group-item"><%= link_to '<i class="fa fa-whatsapp"></i> Entre em contato'.html_safe, "https://wa.me/#{ad.contact}", target: "_blank", class: "btn btn-success btn-xs" %> </li>
 			        <% if session[:latitude] != 0 && session[:longitude] != 0 %>
 		  	              <li class="list-group-item"><%= distance(session[:latitude], session[:longitude], ad.latitude, ad.longitude) %><b> KM de você</b></li>

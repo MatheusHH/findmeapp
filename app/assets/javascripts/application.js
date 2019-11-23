@@ -26,18 +26,21 @@
 //= require turbolinks
 //= require_tree .
 
-
+function clickButtonGeolocation() {
+  document.getElementById("geolocation-button").click();
+}
 
 function getLocation(event) {
-  event.preventDefault();	
+  event.preventDefault();
   if (navigator.geolocation) {
+
     navigator.geolocation.getCurrentPosition(showPosition);
   } else {
     x.innerHTML = "Geolocation is not supported by this browser.";
   }
 }
 
-function showPosition(position) {
+function showPosition(position) { 
 
   var lat = position.coords.latitude;
   var long = position.coords.longitude;
