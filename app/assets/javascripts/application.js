@@ -26,8 +26,16 @@
 //= require turbolinks
 //= require_tree .
 
+
 function clickButtonGeolocation() {
   document.getElementById("geolocation-button").click();
+  
+}
+
+function loadLocal() {
+  var elm = document.getElementById('myCheck')
+  if (elm.checked == true) {document.getElementById("submit-button").click();
+  }
 }
 
 function getLocation(event) {
@@ -48,3 +56,6 @@ function showPosition(position) {
   $("#latitude-field").val(lat);
   $("#longitude-field").val(long);
 }
+
+
+

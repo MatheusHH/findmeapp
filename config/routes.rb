@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   resources :ads, :except => [:show]
   resources :ad_by_category, only: [:show]
   get 'welcome/index'
+  #resources :welcome, only: [:show]
   
 
   devise_for :users

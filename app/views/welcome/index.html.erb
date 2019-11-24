@@ -1,4 +1,4 @@
-<nav class="navbar navbar-inverse" style="border-radius:0 !important">
+<nav class="navbar navbar-inverse", style="border-radius:0 !important">
   <div class="container-fluid">
     <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
@@ -10,7 +10,7 @@
       <li><%= link_to new_user_session_path do %> <span class="glyphicon glyphicon-log-in"></span> LOGIN</li> <% end %></li>
     </ul>
 
-    <%= search_form_for @q, url: welcome_index_path, html: { class: "navbar-form navbar-right", method: :get } do |f| %>
+    <%= search_form_for @q, url: welcome_index_path, html: { class: "navbar-form navbar-right", id: "form-search", method: :get } do |f| %>
       <div class="row">
         <div class="col-lg-6">
           <div class="input-group input-group-md">
@@ -21,6 +21,7 @@
             </span>
           </div>
         </div>
+
 
         <div class="col-lg-6">
           <div class="input-group input-group-md">
@@ -88,6 +89,8 @@
                               <div class="huge"> </div>
                               <br>
                               <div><%= category.name %></div>
+                              <p> Usar localização atual </p>
+                              <input type="checkbox" id="myCheck" onclick="loadLocal()">
                           </div>
                       </div>
                   </div>
