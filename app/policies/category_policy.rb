@@ -22,6 +22,6 @@ class CategoryPolicy < ApplicationPolicy
   end
 
   def edit?
-  	record.id == user.id
+  	record.user_id == user.id
   end
 end
