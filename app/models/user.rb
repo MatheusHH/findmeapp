@@ -14,7 +14,7 @@ class User < ApplicationRecord
   has_many :categories, dependent: :destroy
   has_many :campaigns, dependent: :destroy
 
-  after_create :send_welcome_email
+  #after_create :send_welcome_email
 
 
   private
