@@ -6,7 +6,7 @@ class Customer < ApplicationRecord
   has_one :address, dependent: :destroy
   has_many :budgets, dependent: :destroy
   has_many :campaign_customer, dependent: :destroy
-  has_many :campaign, through: :campaign_customer
+  has_many :campaigns, through: :campaign_customer
 
   validates_with CpfCnpjValidator
 
