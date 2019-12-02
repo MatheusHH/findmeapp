@@ -12,11 +12,14 @@
 
 ActiveRecord::Schema.define(version: 2019_11_22_194542) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
-    t.integer "record_id", null: false
-    t.integer "blob_id", null: false
+    t.bigint "record_id", null: false
+    t.bigint "blob_id", null: false
     t.datetime "created_at", null: false
     t.index ["blob_id"], name: "index_active_storage_attachments_on_blob_id"
     t.index ["record_type", "record_id", "name", "blob_id"], name: "index_active_storage_attachments_uniqueness", unique: true
@@ -40,7 +43,7 @@ ActiveRecord::Schema.define(version: 2019_11_22_194542) do
     t.string "city"
     t.string "state"
     t.string "email"
-    t.integer "customer_id"
+    t.bigint "customer_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["customer_id"], name: "index_addresses_on_customer_id"
@@ -49,7 +52,7 @@ ActiveRecord::Schema.define(version: 2019_11_22_194542) do
   create_table "ads", force: :cascade do |t|
     t.string "title"
     t.text "description"
-    t.integer "user_id"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "street"
@@ -59,7 +62,7 @@ ActiveRecord::Schema.define(version: 2019_11_22_194542) do
     t.float "latitude"
     t.float "longitude"
     t.string "contact"
-    t.integer "category_id"
+    t.bigint "category_id"
     t.index ["category_id"], name: "index_ads_on_category_id"
     t.index ["user_id"], name: "index_ads_on_user_id"
   end
@@ -67,8 +70,8 @@ ActiveRecord::Schema.define(version: 2019_11_22_194542) do
   create_table "books", force: :cascade do |t|
     t.text "description"
     t.integer "status", default: 0
-    t.integer "user_id"
-    t.integer "customer_id"
+    t.bigint "user_id"
+    t.bigint "customer_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.datetime "schedule"
@@ -77,8 +80,8 @@ ActiveRecord::Schema.define(version: 2019_11_22_194542) do
   end
 
   create_table "budget_services", force: :cascade do |t|
-    t.integer "budget_id"
-    t.integer "service_id"
+    t.bigint "budget_id"
+    t.bigint "service_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["budget_id"], name: "index_budget_services_on_budget_id"
@@ -86,7 +89,7 @@ ActiveRecord::Schema.define(version: 2019_11_22_194542) do
   end
 
   create_table "budgets", force: :cascade do |t|
-    t.integer "customer_id"
+    t.bigint "customer_id"
     t.date "duedate"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -94,14 +97,14 @@ ActiveRecord::Schema.define(version: 2019_11_22_194542) do
     t.string "totalprice_currency", default: "BRL", null: false
     t.integer "discount_cents", default: 0, null: false
     t.string "discount_currency", default: "BRL", null: false
-    t.integer "user_id"
+    t.bigint "user_id"
     t.index ["customer_id"], name: "index_budgets_on_customer_id"
     t.index ["user_id"], name: "index_budgets_on_user_id"
   end
 
   create_table "campaign_customers", force: :cascade do |t|
-    t.integer "campaign_id"
-    t.integer "customer_id"
+    t.bigint "campaign_id"
+    t.bigint "customer_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["campaign_id"], name: "index_campaign_customers_on_campaign_id"
@@ -113,13 +116,13 @@ ActiveRecord::Schema.define(version: 2019_11_22_194542) do
     t.text "body"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "user_id"
+    t.bigint "user_id"
     t.index ["user_id"], name: "index_campaigns_on_user_id"
   end
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
-    t.integer "user_id"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_categories_on_user_id"
@@ -128,7 +131,7 @@ ActiveRecord::Schema.define(version: 2019_11_22_194542) do
   create_table "customers", force: :cascade do |t|
     t.string "name"
     t.string "cpf"
-    t.integer "user_id"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_customers_on_user_id"
@@ -136,7 +139,7 @@ ActiveRecord::Schema.define(version: 2019_11_22_194542) do
 
   create_table "phones", force: :cascade do |t|
     t.string "number"
-    t.integer "customer_id"
+    t.bigint "customer_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["customer_id"], name: "index_phones_on_customer_id"
@@ -147,7 +150,7 @@ ActiveRecord::Schema.define(version: 2019_11_22_194542) do
     t.text "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "user_id"
+    t.bigint "user_id"
     t.integer "price_cents", default: 0, null: false
     t.string "price_currency", default: "BRL", null: false
     t.index ["user_id"], name: "index_services_on_user_id"
@@ -173,4 +176,21 @@ ActiveRecord::Schema.define(version: 2019_11_22_194542) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "addresses", "customers"
+  add_foreign_key "ads", "categories"
+  add_foreign_key "ads", "users"
+  add_foreign_key "books", "customers"
+  add_foreign_key "books", "users"
+  add_foreign_key "budget_services", "budgets"
+  add_foreign_key "budget_services", "services"
+  add_foreign_key "budgets", "customers"
+  add_foreign_key "budgets", "users"
+  add_foreign_key "campaign_customers", "campaigns"
+  add_foreign_key "campaign_customers", "customers"
+  add_foreign_key "campaigns", "users"
+  add_foreign_key "categories", "users"
+  add_foreign_key "customers", "users"
+  add_foreign_key "phones", "customers"
+  add_foreign_key "services", "users"
 end

@@ -1,4 +1,9 @@
+require 'sidekiq/web'
+
 Rails.application.routes.draw do
+
+  mount Sidekiq::Web => '/sidekiq'
+
   resources :campaigns, :except => [:show]
   get 'chart/index'
   resources :budgets
