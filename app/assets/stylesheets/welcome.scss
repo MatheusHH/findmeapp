@@ -17,15 +17,17 @@
 	color: white !important;
 }
 
+#title {
+	color: white;
+}
 
-
-//#sessao {
-//  background: image-url("background.jpeg") no-repeat center center fixed;
-//  -webkit-background-size: cover;
-//  -moz-background-size: cover;
-//  -o-background-size: cover;
-//  background-size: cover;    
-//}
+#background {
+  background: image-url("black.jpg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;    
+}
 
 .navbar-inverse a {
 	color:#337ab7 !important;
@@ -59,7 +61,7 @@
 	display: block;
 	width: auto;
 	height: auto;
-	background-color: black;
+	background-color: inverse;
 	margin-right: auto;
 	margin-left: auto;
 }

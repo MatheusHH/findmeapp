@@ -26,3 +26,11 @@
     color: #468847;
     text-align: left;
  }
+
+ #login_background {
+  background: image-url("black.jpg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;    
+ }
