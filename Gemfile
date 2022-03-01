@@ -35,7 +35,7 @@ gem "chartkick"
 gem 'groupdate'
 gem 'brazilian_documents', '~> 0.1.4'
 gem 'mini_magick'
-gem 'image_processing', '~> 1.2'
+gem 'image_processing', '~> 1.12'
 gem 'bootstrap-multiselect-rails'
 gem 'redis'
 gem 'sidekiq'
